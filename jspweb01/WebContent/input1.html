@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+
+<body>
+	<form>
+		ID
+		<input type="text" name="id" value="kim@abc.com" required>
+		<!-- required 값을 반드시 입력해야함 -->
+		<br> ID
+		<input type="text" name="id" placeholder="Insert an email address">
+		<!-- placeholder 도움말? 배경글? -->
+		<br> ID
+		<input type="email" name="id" autofocus>
+		<!-- autofocus 페이지 접속시 자동 포커싱됨 -->
+		<br> PW
+		<input type="password" name="password">
+		<br> Age
+		<input type="number" name="age" value="20" min="1" max="120">
+
+		<br>
+		<input type="checkbox" name="gender" value="남">
+		남자
+		<input type="checkbox" name="gender" value="여">
+		여자 <br>
+
+		<input type="radio" name="gender2" value="남" checked>
+		남자
+		<input type="radio" name="gender2" value="여">
+		여자
+		<!-- checked 자동으로 기본선택 -->
+		<br>
+
+		<textarea rows="10" cols="50" name="comment">아아아</textarea>
+		<br>
+		<select name="fruit">
+			<option value="apple">Apple</option>
+			<option value="banana">Banana</option>
+			<option value="cherry">Cherry</option>
+		</select>
+		<br>
+		<input type="reset" name="reset" value="re">
+	</form>
+</body>
+</html>

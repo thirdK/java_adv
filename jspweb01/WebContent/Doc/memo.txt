@@ -1,0 +1,14 @@
+Sevlet	더 이상 사용하지 않는다.
+
+JSP(*)	아직까지 JSP가 국내에서는 넓게 사용된다.
+
+Spring
+
+Spring Boot
+
+
+
+
+JSP
+
+프로젝트 생성 - JSP생성 - JSP실행 - 결과확인
