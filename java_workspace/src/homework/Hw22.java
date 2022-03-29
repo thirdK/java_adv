@@ -72,7 +72,6 @@ public class Hw22 {
 		}
 		
 		System.out.println(x + " " + y);
-		
 	}
 	
 	//매개변수로 받은 이동계획에 맞게 좌표값 수정해주는 메서드
