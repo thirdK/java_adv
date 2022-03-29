@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+
+<body>
+<!-- form으로 감싸줘야 jsp로 정보를 넘겨줄 수 있다. -->
+<!-- method를 생략하면 default 값인 get으로 설정된다. -->
+	<form action="login2.jsp" method="post">
+		<table align = "center">
+			<tr>
+				<td>아이디</td>
+				<td>
+					<input type="text" name="id" placeholder="아이디를 입력하세요." required="required">
+				</td>
+			</tr>
+			<tr>
+				<td>암호</td>
+				<td>
+					<input type="password" name="password" required="required">
+				</td>
+			</tr>
+			<tr>
+				<td colspan=2 align = "right">
+					<input type="submit" value="로그인하기">
+				</td>
+			</tr>
+		</table>
+	</form>
+</body>
+</html>
