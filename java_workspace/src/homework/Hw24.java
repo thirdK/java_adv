@@ -67,17 +67,17 @@ public class Hw24 {
 	static int dfsR(int x, int y) {	
 		int[][] udlr = { { 0, -1 }, { 0, 1 }, { -1, 0 }, { 1, 0 } };
 		
-		arr[x][y] = 1;	//접근하면 중복탐색을 피하기 위해 1로 변경
-		for (int i = 0; i < 4; i++) { // 연결(인접)가능한 배열은 4방향 이므로 4회반복
-			int newX = x + udlr[i][0];// 좌, 우
-			int newY = y + udlr[i][1];// 상, 하
+		arr[x][y] = 1;					//접근하면 중복탐색을 피하기 위해 1로 변경
+		for (int i = 0; i < 4; i++) { 	// 연결(인접)가능한 배열은 4방향 이므로 4회반복
+			int newX = x + udlr[i][0];	// 좌, 우
+			int newY = y + udlr[i][1];	// 상, 하
 			if (newX >= 0 && newX < arr.length && newY >= 0 && newY < arr[0].length) {
 				if(arr[newX][newY]==0) {
 					dfsR(newX, newY);
 				}
 			}
 		}
-		return 1234;	//의미 없는 숫자다.
+		return 1234;	//의미 없는 숫자
 		//ArrayList result에 아무 값이나 넣고 size로 답을 뽑을거라서 아무값이나 반환해도됨
 		//반환하는 값보다 반환을 하는것에 의미가 있음
 	}
