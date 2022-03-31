@@ -1,0 +1,49 @@
+프로젝트에서 데이터 베이스 연결방법
+
+1. WEB-INF - lib아래에  
+
+WEB-INF/lib/mysql-connector-java-8.0.28.jar
+
+복사해서 넣는다. 
+
+잘 동작하는 지 코드로 확인
+<%
+//JDBC 드라이버 로딩 테스트
+
+   try {
+   Class.forName("com.mysql.jdbc.Driver");
+   out.print("JDBC Driver loading 성공!!<br>");
+   } catch (ClassNotFoundException err) {
+      out.print("JDBC Driver loading 실패!!<br>");
+   }
+
+%>
+
+
+2. Connection 객체 생성
+
+  	String url = "jdbc:mysql://localhost:3306/";
+	String id = "root";
+	String pw = "0000";
+	
+	Connection conn = null;
+	
+	try {
+		conn = DriverManager.getConnection(url, id, pw);
+		out.print("SQL DB 연결 성공!! by 32임태종<br>");
+	} catch (SQLException sqlerr) {
+		out.print("SQL DB 연결 실패!! <br>");
+	}finally{	<-- 연결을 종료하기 위해 finally 사용
+		//데이터베이스 연결 종료
+		if(conn != null){
+			try {
+				conn.close();	<-- 닫기
+				out.print("SQL 서버 연결 종료<br>");
+			} catch (Exception conerr){
+				conerr.printStackTrace();
+			}
+		}
+	}
+예전에는 항상 반드시 직접 닫아 줘야만했기때문에 하위 호환성 유지를 위해 관례적으로 다쓰면 닫아준다.
+
+4.Statement 객체 생성
