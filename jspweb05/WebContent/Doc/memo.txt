@@ -1,0 +1,34 @@
+1. 데이터베이스 만들기
+
+String sql = "CREATE DATABASE univ";
+
+2. 데이터베이스 삭제
+String sql = "DROP DATABASE univ";
+
+3.테이블 만들기
+   String sql = "CREATE TABLE student("
+		   +"hakbun int not null,"
+		   +"name varchar(10),"
+		   +"dept varchar(20),"
+		   +"primary key(hakbun))";
+4. 테이블에 데이터 넣기
+String hakbun = request.getParameter("hakbun");
+String name = request.getParameter("name");
+String dept = request.getParameter("dept");
+
+String sql = "INSERT INTO student VALUES(?,?,?)";
+pstmt = conn.prepareStatement(sql);
+pstmt.setString(1, hakbun);
+pstmt.setString(2, name);
+pstmt.setString(3, dept);
+pstmt.executeUpdate();
+
+5. 테이블에서 데이터 가져오기
+String sql = "SELETC * FROM student";
+pstmt = conn.prepareStatement(sql);
+rset = pstmt.executeQuery();
+
+
+*프로젝트명을 주소 url 에서 감추는 방법
+
+하단의 Servers -Tomcat을 더블클릭 - Modules - 프로젝트명 누르고 우측 메뉴 Edit - Path에 '/'만 남기고 삭제 - 저장해야함
