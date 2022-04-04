@@ -36,7 +36,7 @@ w-75 : 박스의 크기를 브라우 크기의 75%로 유지
 		</tr>
 
 		<%
-			request.setCharacterEncoding("UTF-8");
+		request.setCharacterEncoding("UTF-8");
 		Class.forName("com.mysql.jdbc.Driver");
 
 		String url = "jdbc:mysql://localhost:3306/visit";

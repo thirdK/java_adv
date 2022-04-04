@@ -28,7 +28,7 @@
 			conn = DriverManager.getConnection(url, id, pw);
 			out.print("SQL DB 연결 성공!! by 32임태종<br>");
 			
-			String sql = "CREATE DATABASE univ2";//DB생성 sql 구문
+			String sql = "CREATE DATABASE test";//DB생성 sql 구문
 			
 			pstmt = conn.prepareStatement(sql);//구문을 객체에 넣어서
 			
