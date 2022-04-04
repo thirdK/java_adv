@@ -4,17 +4,17 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>쿠키 생성</title>
+<title>쿠키 변경</title>
 </head>
 <body>
 <b>쿠키 생성</b>
 <br>
 <%
-	Cookie cookie = new Cookie("id", "32taejong");	//쿠키 객체 생성
+	Cookie cookie = new Cookie("id", "32test");	//쿠키 객체 생성
 	cookie.setMaxAge(300);	//쿠키 생존 기간 설정 (초단위) -> 즉, 5분간 쿠키를 유지
 	response.addCookie(cookie);
 	
-	out.print("쿠키 생성 완료<br>");
+	out.print("쿠키 변경 완료<br>");
 %>
 
 쿠키 이름 		: <%=cookie.getName()%><br>
