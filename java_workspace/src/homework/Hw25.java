@@ -72,7 +72,7 @@ public class Hw25 {
 	
 //=============================================================================================
 	//Queue를 사용하는 방법
-	//배열 사용과 크게다르지 않음 자리수 비교하는 조건문만 check()메서드로 분리시켰음
+	//풀이 방법은 배열 사용과 거의 같음 자리수 비교하는 조건문만 check()메서드로 분리시켰음
 	static int makeQueue(String str1, String str2) {
 		
 		Queue<Integer> q1 = Arrays.stream(str1.split("\\.")).map(Integer::valueOf).collect(Collectors.toCollection(LinkedList::new));
