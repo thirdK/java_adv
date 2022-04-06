@@ -12,7 +12,7 @@
 // JDBC 드라이버 로딩
    Class.forName("com.mysql.jdbc.Driver");
 // DB연결
-   String url = "jdbc:mysql://localhost:3306/school";
+   String url = "jdbc:mysql://localhost:3306/university";
    String id = "root";
    String pw = "0000";
    
@@ -23,19 +23,24 @@
    
 // 테이블 만들기 SQL
 
-  String sql = "CREATE TABLE emp("
-		   +"num varchar(20) NOT NULL,"
-		   +"name varchar(50),"
-		   +"dept varchar(50),"
-		   +"primary key(num))";
+  String sql = "CREATE TABLE student("
+		   +"hakbun int not null,"
+		   +"name varchar(10),"
+		   +"gender varchar(10),"
+		   +"year tinyint,"
+		   +"dept varchar(20),"
+		   +"addr varchar(50),"
+		   +"primary key(hakbun))";
 
    pstmt = conn.prepareStatement(sql);
    pstmt.executeUpdate(); 
    
-   
 // DB 연결 종료
    if (pstmt != null) pstmt.close();
    if (conn != null) conn.close();
+   
+   out.print("DB연결 문제 없음 by 32임태종");
+   
    
 %>
 </body>
