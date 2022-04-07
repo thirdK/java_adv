@@ -17,9 +17,6 @@ background-color: #F2EDD7;
  .btn btn-primary {
  	background-color: #F2EDD7;
  }
-.btn btn-primary active .btn btn-primary .btn btn-primary{
-	background-color: #F2EDD7;
-}
 </style>
 </head>
 <body>
@@ -27,6 +24,7 @@ background-color: #F2EDD7;
 	<!-- CSS only -->
 	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
 	<div class="container shadow mx-auto mt-5 p-5 w-75" id="div_id">
+	
 		<%
 		request.setCharacterEncoding("UTF-8");
 		// JDBC 드라이버 로딩
