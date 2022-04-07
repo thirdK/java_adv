@@ -47,7 +47,7 @@ n==2 일때도 생각해야한다 마지막에 2개의 울타리가 남았다면
 울타리 2개 까지는 연속되는 색에 대한 문제를 고민할 필요가 없으므로 k*k이다.
 
 
-k=3인 경우 red/green/blue
+n=2/k=3인 경우 red/green/blue
 	rr, rg, rb
 	gg, gr, gb
 	bb, br, bg
