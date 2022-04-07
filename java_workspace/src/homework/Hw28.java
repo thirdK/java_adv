@@ -44,8 +44,9 @@ k=2 이면 [-1/-2], [-1/-2] 를 할 수 있다.
  
 n==2 일때도 생각해야한다 마지막에 2개의 울타리가 남았다면 경우의 수 k*k 이다.
 1개의 울타리가 k개의 경우의 수이니까 2개의 울타리는 k*k
- 
-red/green/blue
+
+
+k=3인 경우 red/green/blue
 	rr, rg, rb
 	gg, gr, gb
 	bb, br, bg
@@ -53,6 +54,7 @@ red/green/blue
 	k가 2일때		k가 3일때
 n=1		2		3
 n=2		4		9 -> n이 2일 때 규칙은 k의 제곱이다.
+
 
 이제 조건식으로
 
@@ -64,7 +66,7 @@ if(n == 2) return k*k;
  */
 
 public class Hw28 {
-	static int k;;
+	static int k;
 	public static void main(String[] args) {
 		Scanner sc = new Scanner(System.in);
 		System.out.print("n개의 기둥 : ");
