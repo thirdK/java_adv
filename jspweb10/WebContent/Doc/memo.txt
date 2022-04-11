@@ -1,0 +1,26 @@
+Statement & PreparedStatement 차이점
+결론 PreparedStatement사용하면됨
+
+미묘한 차이가 있다.
+1. PreparedStatement 는 ?를 사용하여 문장을 좀더 간결하게 직관적으로 표현할 수 있다.
+2. Statement은 connection의 createStatement()함수가 사용된다.
+3. PreparedStatement는 set()함수가 사용된다. 정수일 경우 setInt()를 사용한다.
+4. stmt는 executeUpdate()함수를 호출할 때 sql문을 입력 파라미터로 전달하고
+   pstmt는 executeUpdate()함수를 호출할 때 sql문을 파라미터로 전달하지 않는다.
+
+- Statement
+
+	String sql = "INSERT INTO user(id, password, name) VALUES("'
+				+ uid + "' , '" + upass "', '" + uname + ")";
+	
+	Statement stmt = conn.createStatement();
+	stmt.executeUpdate(sql);
+
+- PreparedStatement
+
+	String sql = "INSERT INTO user(id, password, name) VALUES(?,?,?)";
+	PreparedStatement pstmt = conn.PrepareStatement(sql);
+		pstmt.setString(1, uid);
+		pstmt.setString(2, upass);
+		pstmt.setString(3, uname);
+	pstmt.executeUpdate();
