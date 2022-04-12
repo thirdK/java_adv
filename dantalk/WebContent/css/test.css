@@ -1,0 +1,14 @@
+@charset "UTF-8";
+.main-main{
+	background-color: #F0EDCC;
+	color: #02343F;
+	padding : 10px;
+	border-radius: 40px
+}
+.main-main-div_input {
+	border: 1px dotted;
+	border-color: black; 
+	margin : 20px 140px;
+}
+
+

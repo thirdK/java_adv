@@ -1,0 +1,39 @@
+사진 올리기
+1. 사진 항목 추가 -> view
+<tr>
+	<td align="right"> 이미지	</td>
+	<td><input type="file" name="image"> </td>
+</tr>
+
+2. form action에 추가
+
+<form action="feedAdd.jsp" method="POST" enctype = "multipart/form-data">
+
+여기까지 설정하고 테스트를 해보면 실제 넘어가는 값을 확인할 수 없게된다.
+id:null
+content:null
+image:null
+
+하지만 개별적으로 넘어오는 값이 없을뿐 모든 데이터는 하나의 덩어리로 넘어온 것이다. 따라서 DB에 넣기 위해서
+각각 분리 추출해야한다.
+
+다행히 일일이 직접 추출하지 않고 추출해주는 라이브러리를 사용하여 추출할 수 있다.
+
+1. https://commons.apache.org/ 사이트로 이동하여 중간쯤 FileUpload 클릭
+zip파일 다운 받고 압축 풀기
+
+WEB-INF/lib 에
+commons-fileupload-1.4.jar 붙여넣기
+
+1. https://commons.apache.org/ 사이트로 이동하여 중간쯤 IO 클릭 
+zip파일 다운 받고 앞축 풀기
+
+WEB-INF/lib 에
+commons-io-2.11.0.jar 붙여넣기
+
+view에 아래 내용으로 임포트
+
+<%@ page import = "java.util.*" %>
+<%@ page import = "org.apache.commons.fileupload.*" %>
+<%@ page import = "org.apache.commons.fileupload.disk.*" %>
+<%@ page import = "org.apache.commons.fileupload.servlet.*" %>
