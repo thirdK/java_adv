@@ -1,0 +1,45 @@
+@charset "UTF-8";
+nav{
+	z-index: 1;
+}
+.div-wel{
+	margin-bottom: 10px;
+	display: flex;
+	flex-direction: column;
+	padding : 10px 0px;
+}
+
+#div-welcome1{
+	background-color: #364b44;
+	color : #CE4A7E;
+	margin: 0 -10px;
+	position: relative;
+	top:-5px;
+	transform: rotate(3deg);
+	
+}
+#div-welcome2{
+	background-color: #CE4A7E;
+	color : #364b44;
+	margin: 0 -10px;
+	position: relative;
+	top:-20px;
+	padding-left: 300px;
+}
+#div-welcome3{
+	background-color: #364b44;
+	color : #CE4A7E;
+	margin: 0 -10px;
+	/* padding-left: 600px; */
+	position: relative;
+	top:-20px;
+	transform: rotate(3deg)
+}
+
+.con3{
+	align-items: right;
+}
+
+#hh3{
+	align-items: right;
+}
