@@ -5,7 +5,7 @@
 <%
 	String uid = (String) session.getAttribute("id");
 	if (uid == null){
-		response.sendRedirect("/login.jsp");
+		response.sendRedirect("/user/login.jsp");
 		return;
 	}
 %>

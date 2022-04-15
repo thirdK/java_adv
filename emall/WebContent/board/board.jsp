@@ -22,7 +22,7 @@
 	</div>
 
 	<div align="center">
-		<form>
+		<form action = "boardwrite.jsp">
 			<table>
 				<tr>
 					<th width="100px">글번호</th>
@@ -57,7 +57,7 @@
 					}
 				%>
 			</table>
-
+			<button>글쓰기</button>
 		</form>
 	</div>
 

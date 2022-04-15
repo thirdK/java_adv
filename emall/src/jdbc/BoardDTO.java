@@ -14,17 +14,27 @@ public class BoardDTO {
 	private String btitle;
 	private String bdate;
 	private String bcontent;
+	private String bimage;
 	
 	
 	public BoardDTO() {;}
 	
-	public BoardDTO(String bid, String buser, String btitle, String bdate, String bcontent) {
+	public BoardDTO(String bid, String buser, String btitle, String bdate, String bcontent, String bimage) {
 		super();
 		this.bid = bid;
 		this.buser = buser;
 		this.btitle = btitle;
 		this.bdate = bdate;
 		this.bcontent = bcontent;
+		this.bimage = bimage;
+	}
+
+	public String getBimage() {
+		return bimage;
+	}
+
+	public void setBimage(String bimage) {
+		this.bimage = bimage;
 	}
 
 	public String getBid() {

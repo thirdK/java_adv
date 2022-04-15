@@ -51,6 +51,14 @@
 					<td>
 						<br><%=content.getBcontent()%></td>
 				</tr>
+				<tr>
+					<th>첨부 파일</th>
+				</tr>
+				<tr>
+					<td>
+						<img src="/images/<%=content.getBimage()%>" style="width: 100%">
+					</td>
+				</tr>
 			</table>
 			<div>
 				<button>뒤로가기</button>
