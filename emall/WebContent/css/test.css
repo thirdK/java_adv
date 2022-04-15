@@ -31,7 +31,7 @@ nav{
 	color : #CE4A7E;
 	margin: 0 -10px;
 	/* padding-left: 600px; */
-	position: relative;
+	/* position: relative; */
 	top:-20px;
 	transform: rotate(3deg)
 }
@@ -40,6 +40,7 @@ nav{
 	align-items: right;
 }
 
-#hh3{
+#con33{
 	align-items: right;
+	align : right;
 }

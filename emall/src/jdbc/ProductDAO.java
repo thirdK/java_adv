@@ -30,7 +30,8 @@ public class ProductDAO{
 						rs.getString("pdesc"),
 						rs.getString("pmanu"),
 						rs.getString("pcate"),
-						rs.getString("pcondi")
+						rs.getString("pcondi"),
+						rs.getString("pimage")
 						));
 			}
 			
@@ -70,8 +71,9 @@ public class ProductDAO{
 			String pmanu = rs.getString(5);
 			String pcate = rs.getString(6);
 			String pcondi = rs.getString(7);
+			String pimage = rs.getString(8);
 			
-			product = new ProductDTO(id, pname, pprice, pdesc, pmanu, pcate, pcondi);
+			product = new ProductDTO(id, pname, pprice, pdesc, pmanu, pcate, pcondi, pimage);
 			
 		} catch (NamingException e) {
 			e.printStackTrace();
@@ -90,6 +92,46 @@ public class ProductDAO{
 		return product;
 		
 	}
+	
+	
+	public boolean insert(String pid, String pname, String pprice, String pdesc, String pmanu, String pcate,
+			String pcondi, String pimage) throws NamingException, SQLException {
+		int result = 0;
+		String sql = "INSERT INTO product VALUES(?,?,?,?,?,?,?,?)";
+		
+		try {
+			conn = ConnectionPool.get();
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setString(1, pid);
+			pstmt.setString(2, pname);
+			pstmt.setString(3, pprice);
+			pstmt.setString(4, pdesc);
+			pstmt.setString(5, pmanu);
+			pstmt.setString(6, pcate);
+			pstmt.setString(7, pcondi);
+			pstmt.setString(8, pimage);
+			result = pstmt.executeUpdate();
+		} catch (NamingException e) {
+			e.printStackTrace();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			try {
+				if(pstmt != null) pstmt.close();
+				if(conn != null) conn.close();
+			} catch (SQLException e) {
+				e.printStackTrace();
+			} catch (Exception e) {
+				throw new RuntimeException(e);
+			}
+		}
+		
+		return result == 1;
+	}
+	
+	
 }
 
 

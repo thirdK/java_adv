@@ -24,10 +24,10 @@ body {
 				<li class="nav-item"><a class="nav-link active" aria-current="page" href="/product/productlist.jsp">상품목록</a></li>
 				<li class="nav-item dropdown"><a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false"> 회원 </a>
 					<ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-						<li><a class="dropdown-item" href="#">로그인</a></li>
-						<li><a class="dropdown-item" href="#">로그아웃</a></li>
+						<li><a class="dropdown-item" href="/user/login.jsp">로그인</a></li>
+						<li><a class="dropdown-item" href="/user/logout.jsp">로그아웃</a></li>
 						<li><a class="dropdown-item" href="#">주문목록</a></li>
-						<li><a class="dropdown-item" href="#">회원가입</a></li>
+						<li><a class="dropdown-item" href="/user/useradd.jsp">회원가입</a></li>
 						<li><a class="dropdown-item" href="#">회원탈퇴</a></li>
 					</ul></li>
 

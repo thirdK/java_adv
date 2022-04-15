@@ -15,6 +15,5 @@ public class FileUtil {
 			FileOutputStream out = new FileOutputStream(f);
 			out.write(data);
 			out.close();
-	
 	}
 }

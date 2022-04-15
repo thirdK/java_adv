@@ -29,8 +29,8 @@
 			</div>
 		</div>
 		<div class="alert alert-secondary" role="alert" id="div-welcome3">
-			<div class="container con3">
-				<h1 class="display-3" id="hh3"><%=greeting%></h1>
+			<div class="container con3" id="con33">
+				<h1 class="display-3" ><%=greeting%></h1>
 			</div>
 		</div>
 	</div>

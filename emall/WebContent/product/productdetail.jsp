@@ -29,7 +29,7 @@
 	<div class="container">
 		<div class="row">
 			<div class="col-ma-5">
-				<img src="" style="width:100%">
+				<img src="/images/<%=product.getPimage() %>"  style="width:100%">
 				<div class="col-ma-6">
 					<h3><%=product.getPname() %></h3>
 					<p><%=product.getPdesc() %></p>	

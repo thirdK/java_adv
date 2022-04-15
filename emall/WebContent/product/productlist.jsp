@@ -2,6 +2,13 @@
 <%@page import="jdbc.ProductDTO"%>
 <%@page import="java.util.ArrayList"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%
+	String uid = (String) session.getAttribute("id");
+	if (uid == null){
+		response.sendRedirect("/login.jsp");
+		return;
+	}
+%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -32,7 +39,7 @@
 		for(ProductDTO product : products){
 		%>
 			<div class="col-md-3">
-				<img src="" style="width: 100%">
+				<img src="/images/<%=product.getPimage() %>" style="width: 100%">
 					<h3><%=product.getPname() %></h3>
 					<p><%=product.getPprice() %></p>
 					<p><a href="productdetail.jsp?pid=<%=product.getPid() %>" class="btn btn-secondary" role="button">상세정보</a></p>
