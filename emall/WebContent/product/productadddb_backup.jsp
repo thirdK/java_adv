@@ -60,10 +60,9 @@ while (iter.hasNext()) { // 요소가 있으면 계속 반복 없으면 종료
 			arr.add(pimage);
 			
 			pfile = item.get(); //사진내용
-			
+		
 			//서버에 사진 저장
 			String root = application.getRealPath(java.io.File.separator);
-			System.out.println(root);
 			FileUtil.saveImage(root, pimage, pfile);
 
 		}
@@ -71,7 +70,7 @@ while (iter.hasNext()) { // 요소가 있으면 계속 반복 없으면 종료
 }
 //DB에 게시물 모든 정보 전달
 ProductDAO dao = new ProductDAO();
-if (dao.insert(pid, pname, pprice, pdesc, pmanu, pcate, pcondi, arr)) {
+if (dao.insert(pid, pname, pprice, pdesc, pmanu, pcate, pcondi, pimage)) {
 	response.sendRedirect("productlist.jsp");
 }
 %>

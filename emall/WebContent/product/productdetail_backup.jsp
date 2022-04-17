@@ -32,9 +32,7 @@
 	<div class="container">
 		<div class="row">
 			<div class="col-ma-5">
-				<%while(st.hasMoreTokens()){ %>
-				<img src="/images/<%=st.nextToken()%>"  style="width:100%">
-				<%} %>
+				<img src="/images/<%=product.getPimage() %>"  style="width:100%">
 				<div class="col-ma-6">
 					<h3><%=product.getPname() %></h3>
 					<p><%=product.getPdesc() %></p>	

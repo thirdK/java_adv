@@ -5,6 +5,7 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
+import java.util.Iterator;
 
 import javax.naming.NamingException;
 
@@ -132,6 +133,49 @@ public class ProductDAO{
 	}
 	
 	
+	
+	
+	public boolean insert(String pid, String pname, String pprice, String pdesc, String pmanu, String pcate,
+			String pcondi, ArrayList<String> arr) throws NamingException, SQLException {
+		int result = 0;
+		String sql = "INSERT INTO product VALUES(?,?,?,?,?,?,?,?)";
+		
+		String pimages = "";
+		for(String str : arr) {
+			pimages += str+"/";
+		}
+		
+		try {
+			conn = ConnectionPool.get();
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setString(1, pid);
+			pstmt.setString(2, pname);
+			pstmt.setString(3, pprice);
+			pstmt.setString(4, pdesc);
+			pstmt.setString(5, pmanu);
+			pstmt.setString(6, pcate);
+			pstmt.setString(7, pcondi);
+			pstmt.setString(8, pimages);
+			result = pstmt.executeUpdate();
+		} catch (NamingException e) {
+			e.printStackTrace();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			try {
+				if(pstmt != null) pstmt.close();
+				if(conn != null) conn.close();
+			} catch (SQLException e) {
+				e.printStackTrace();
+			} catch (Exception e) {
+				throw new RuntimeException(e);
+			}
+		}
+		
+		return result == 1;
+	}
 }
 
 
