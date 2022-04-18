@@ -25,16 +25,24 @@
 	<%
 	String pid = request.getParameter("pid");
 	ProductDTO product = (new ProductDAO()).getDetail(pid);
+	//DB에서 가져온 정보를 product객체에 담는다.
+	
 	String test = product.getPimage();
 	StringTokenizer st = new StringTokenizer(test, "/");
+	//product에서 pimage를 가져온다 
+	//pimage는 [이미지 이름] + [구분자 "/"]로 연결되어 있으므로 StringTokenizer로 분리시킨다.
 	%>
 	
 	<div class="container">
 		<div class="row">
 			<div class="col-ma-5">
-				<%while(st.hasMoreTokens()){ %>
+			
+				<%while(st.hasMoreTokens()){ %>	
+				<!-- StringTokenizer형태인 st객체에 Token이 남아있다면 반복한다. -->
 				<img src="/images/<%=st.nextToken()%>"  style="width:100%">
+				<!-- 반복되는 코드는 이미지를 차례대로 출력한다. -->
 				<%} %>
+				
 				<div class="col-ma-6">
 					<h3><%=product.getPname() %></h3>
 					<p><%=product.getPdesc() %></p>	

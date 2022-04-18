@@ -23,15 +23,12 @@ String pimage = null;
 byte[] pfile = null;
 
 ArrayList<String> arr = new ArrayList<>();
-String tostr =  null;
-String pimage2 = null;
+//이미지를 여러개 추가하면 이름을 여러개 저장하기 위해 ArrayList사용
 
 ServletFileUpload sfu = new ServletFileUpload(new DiskFileItemFactory());
 // 추출 값들을 객체 형태로 저장할 준비
-
 List items = sfu.parseRequest(request);
 // 입력된 값들을 추출하여 객체에 저장
-
 Iterator iter = items.iterator();
 // 순차적으로 접근하기 위해 객체 생성
 
@@ -57,14 +54,14 @@ while (iter.hasNext()) { // 요소가 있으면 계속 반복 없으면 종료
 		//사진을 추출
 		if (name.equals("images")) {
 			pimage = item.getName(); //사진이름
-			arr.add(pimage);
+			arr.add(pimage);//이름을 ArrayList에 저장함(여러개면 여러번 저장됨)
 			
 			pfile = item.get(); //사진내용
 			
 			//서버에 사진 저장
 			String root = application.getRealPath(java.io.File.separator);
 			System.out.println(root);
-			FileUtil.saveImage(root, pimage, pfile);
+			FileUtil.saveImage(root, pimage, pfile);//사진을 서버에 저장하는 메소드 
 
 		}
 	}

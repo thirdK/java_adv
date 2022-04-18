@@ -134,7 +134,7 @@ public class ProductDAO{
 	
 	
 	
-	
+	//여러개의 사진을 저장하기 위한 메서드(1개도 상관없음)
 	public boolean insert(String pid, String pname, String pprice, String pdesc, String pmanu, String pcate,
 			String pcondi, ArrayList<String> arr) throws NamingException, SQLException {
 		int result = 0;
@@ -144,6 +144,8 @@ public class ProductDAO{
 		for(String str : arr) {
 			pimages += str+"/";
 		}
+		//pimages에 사진이름+"/"로 저장함 img01, img02를 넣으면
+		// "img01/img02/"로 저장됨
 		
 		try {
 			conn = ConnectionPool.get();
@@ -155,7 +157,7 @@ public class ProductDAO{
 			pstmt.setString(5, pmanu);
 			pstmt.setString(6, pcate);
 			pstmt.setString(7, pcondi);
-			pstmt.setString(8, pimages);
+			pstmt.setString(8, pimages);	//구분자 "/"를 포함한 이름을 DB로 전송
 			result = pstmt.executeUpdate();
 		} catch (NamingException e) {
 			e.printStackTrace();
