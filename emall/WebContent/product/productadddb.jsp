@@ -32,13 +32,17 @@ List items = sfu.parseRequest(request);
 Iterator iter = items.iterator();
 // 순차적으로 접근하기 위해 객체 생성
 
-while (iter.hasNext()) { // 요소가 있으면 계속 반복 없으면 종료
+while (iter.hasNext()) { 
+	// 요소가 있으면 계속 반복 없으면 종료
+	
 	FileItem item = (FileItem) iter.next(); //요소를 하나씩 추출
-	String name = item.getFieldName(); //요소의 이름 추출
+	// 이미지가 2개 이상이면 이미지 요소를 1개씩 추출함 즉, 2개이상이면 반복문이 2번이상 실행됨
+	
+	String name = item.getFieldName(); //위에서 추출한 요소의 이름을 가져옴(pid,pname,pimage등등)
 	
 	System.out.println();
 	System.out.println();
-	System.out.println(name);
+	System.out.println(name);//이름 잘 뽑히는지 테스트
 	
 	if (item.isFormField()) { //이름과 값으로 즉 맵 형태 쌍으로 구성되어 있는지 확인
 		//텍스트를 추출		
@@ -54,7 +58,7 @@ while (iter.hasNext()) { // 요소가 있으면 계속 반복 없으면 종료
 		//사진을 추출
 		if (name.equals("images")) {
 			pimage = item.getName(); //사진이름
-			arr.add(pimage);//이름을 ArrayList에 저장함(여러개면 여러번 저장됨)
+			arr.add(pimage);//이미지파일 이름을 ArrayList에 저장함(여러개면 여러개 저장됨)
 			
 			pfile = item.get(); //사진내용
 			
