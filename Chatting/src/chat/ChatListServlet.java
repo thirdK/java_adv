@@ -11,7 +11,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-@WebServlet("/ChatSubmitServlet")
+@WebServlet("/ChatListServlet")
 public class ChatListServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
@@ -23,7 +23,18 @@ public class ChatListServlet extends HttpServlet {
 		if(listType == null || listType.equals("")) response.getWriter().write("");
 		//비어 있다면 공백출력
 		else if(listType.equals("today")) response.getWriter().write(getToday());
-		//listType이 "today" 즉, 오늘이면 
+		//listType이 "today"이면
+		
+		else if(listType.equals("ten")) response.getWriter().write(getTen());
+		
+		else {
+			try {
+				Integer.parseInt(listType);
+				response.getWriter().write(getID(listType));
+			} catch (Exception e) {
+				response.getWriter().write("");
+			}
+		}
 	}
 	
 	//오늘 데이터를 DB에서 가져와서 사용자에게 보여준다. 
@@ -38,9 +49,54 @@ public class ChatListServlet extends HttpServlet {
 			result.append("{\"value\": \"" + chatList.get(i).getChatTime() + "\"}]");
 			if(i != chatList.size() - 1) result.append(",");
 		}
-		result.append("]}");
+		result.append("], \"last\":\"" + chatList.get(chatList.size()-1).getChatID() + "\"}");
 		return result.toString();
 	}
+	
+	
+	
+	
+	
+	
+	
+	
+	public String getTen() {
+		StringBuffer result = new StringBuffer("");
+		result.append("{\"result\":[");
+		ChatDAO chatDAO = new ChatDAO();
+		ArrayList<Chat> chatList = chatDAO.getChatListByRecent(10);
+		for(int i=0; i<chatList.size(); i++) {
+			result.append("[{\"value\": \"" + chatList.get(i).getChatName() + "\"},");
+			result.append("{\"value\": \"" + chatList.get(i).getChatContent() + "\"},");
+			result.append("{\"value\": \"" + chatList.get(i).getChatTime() + "\"}]");
+			if(i != chatList.size() - 1) result.append(",");
+		}
+		result.append("], \"last\":\"" + chatList.get(chatList.size()-1).getChatID() + "\"}");
+		return result.toString();
+	}
+	
+	
+	
+	
+	
+	public String getID(String chatID) {
+		StringBuffer result = new StringBuffer("");
+		result.append("{\"result\":[");
+		ChatDAO chatDAO = new ChatDAO();
+		ArrayList<Chat> chatList = chatDAO.getChatListByRecent(chatID);
+		for(int i=0; i<chatList.size(); i++) {
+			result.append("[{\"value\": \"" + chatList.get(i).getChatName() + "\"},");
+			result.append("{\"value\": \"" + chatList.get(i).getChatContent() + "\"},");
+			result.append("{\"value\": \"" + chatList.get(i).getChatTime() + "\"}]");
+			if(i != chatList.size() - 1) result.append(",");
+		}
+		result.append("], \"last\":\"" + chatList.get(chatList.size()-1).getChatID() + "\"}");
+		return result.toString();
+	}
+	
+	
+	
+	
 	
 	//서블릿을 매핑하기 위해 web.xml에 매핑작업을 해준다.
 }
