@@ -27,7 +27,7 @@ public class UserDTO {
 	private String user_zipcode;
 	private String user_addr;
 	private String user_addrdetail;
-	private boolean user_gender;	// false : 여자, true : 남자
+	private String user_gender;		// false : 여자, true : 남자
 	private String user_email;
 	private String user_phone;
 	private boolean user_admin;		// false : 일반, true : admin
@@ -39,7 +39,7 @@ public class UserDTO {
 	
 	// 모든 매개변수를 받는 생성자 -> 다른 매개변수 필요시 오버로딩 할 것
 	public UserDTO(int user_no, String user_name, String user_pw, String user_birth, String user_zipcode,
-			String user_addr, String user_addrdetail, boolean user_gender, String user_email, String user_phone,
+			String user_addr, String user_addrdetail, String user_gender, String user_email, String user_phone,
 			boolean user_admin, boolean user_kakao, String user_auth, boolean user_status) {
 		this.user_no = user_no;
 		this.user_name = user_name;
@@ -57,6 +57,7 @@ public class UserDTO {
 		this.user_status = user_status;
 	}
 
+	
 	public int getUser_no() {
 		return user_no;
 	}
@@ -80,7 +81,7 @@ public class UserDTO {
 	public void setUser_pw(String user_pw) {
 		this.user_pw = user_pw;
 	}
-	
+
 	public String getUser_birth() {
 		return user_birth;
 	}
@@ -113,11 +114,11 @@ public class UserDTO {
 		this.user_addrdetail = user_addrdetail;
 	}
 
-	public boolean isUser_gender() {
+	public String getUser_gender() {
 		return user_gender;
 	}
 
-	public void setUser_gender(boolean user_gender) {
+	public void setUser_gender(String user_gender) {
 		this.user_gender = user_gender;
 	}
 
@@ -168,7 +169,6 @@ public class UserDTO {
 	public void setUser_status(boolean user_status) {
 		this.user_status = user_status;
 	}
-	
 
 	
 	

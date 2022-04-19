@@ -41,7 +41,7 @@ public class GymDTO extends UserDTO{
 
 	//전체(부모클래스 필드를 포함한) 매개변수를 받는 생성자 -> 다른 매개변수의 생성자 필요시 오버로딩
 	public GymDTO(int user_no, String user_name, String user_pw, String user_birth, String user_zipcode,
-			String user_addr, String user_addrdetail, boolean user_gender, String user_email, String user_phone,
+			String user_addr, String user_addrdetail, String user_gender, String user_email, String user_phone,
 			boolean user_admin, boolean user_kakao, String user_auth, boolean user_status, int gym_no, String gym_name,
 			String gym_content, String gym_addr, int gym_salary, boolean gym_secret, String gym_regdate,
 			String gym_images) {
