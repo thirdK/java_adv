@@ -1,4 +1,10 @@
 package dto;
+
+//DTO상속에 관해 알아보니 부정적인 의견과 예시가 나왔습니다.
+//저희는 DTO와 엔티티가 일치한다고 볼 수 있고, DTO를 HashMap에 담을 일은 없을것이기에 
+//큰 문제는 없을듯 하지만		(https://okky.kr/article/740523)
+//DTO를 통해 데이터를 주고 받을 때 알수 없는 오류가 발생하면 DTO상속에 관한 부분도 의심하셔야합니다.
+
 /*
 CREATE TABLE `gym` (
 		`gym_no` INT(10) NOT NULL AUTO_INCREMENT,
