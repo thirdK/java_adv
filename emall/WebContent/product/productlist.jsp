@@ -3,11 +3,11 @@
 <%@page import="java.util.ArrayList"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%
-	String uid = (String) session.getAttribute("id");
+/* 	String uid = (String) session.getAttribute("id");
 	if (uid == null){
 		response.sendRedirect("/user/login.jsp");
 		return;
-	}
+	} */
 %>
 <!DOCTYPE html>
 <html>
@@ -41,7 +41,7 @@
 			<div class="col-md-3">
 				<img src="/images/<%=product.getPimage() %>" style="width: 100%">
 					<h3><%=product.getPname() %></h3>
-					<p><%=product.getPprice() %></p>
+					<p><%=product.getPprice() %>원</p>
 					<p><a href="productdetail.jsp?pid=<%=product.getPid() %>" class="btn btn-secondary" role="button">상세정보</a></p>
 			</div>
 		<% }%>

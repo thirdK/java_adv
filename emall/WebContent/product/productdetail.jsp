@@ -36,8 +36,9 @@
 	<div class="container">
 		<div class="row">
 			<div class="col-ma-5">
-			
-				<%while(st.hasMoreTokens()){ %>	
+				
+				<%while(st.hasMoreTokens()){ %>
+				
 				<!-- StringTokenizer형태인 st객체에 Token이 남아있다면 반복한다. -->
 				<img src="/images/<%=st.nextToken()%>"  style="width:100%">
 				<!-- 반복되는 코드는 이미지를 차례대로 출력한다. -->
@@ -48,7 +49,7 @@
 					<p><%=product.getPdesc() %></p>	
 					<p><b>상품코드 : <%=product.getPid() %></b>			
 					<p><b>상품가격 : <%=product.getPprice() %></b>	
-					<a href="" class="btn btn-info">상품주문</a>		
+					<a href="orderconfirm.jsp?pid=<%=product.getPid()%>&pprice=<%=product.getPprice()%>&pname=<%=product.getPname() %>" class="btn btn-secondary" role="button">상품주문</a>		
 					<a href="productlist.jsp" class="btn btn-secondary">상품목록</a>		
 				</div>
 			</div>
