@@ -40,7 +40,7 @@ public class UserDTO {
 	// 모든 매개변수를 받는 생성자 -> 다른 매개변수 필요시 오버로딩 할 것
 	// DB - DAO ( 전체 가자오기 )
 	public UserDTO(String user_no, String user_name, String user_pw, String user_birth, String user_zipcode,
-			String user_addr, String user_addrderail, String user_gender, String user_email, String user_phone,
+			String user_addr, String user_addrdetail, String user_gender, String user_email, String user_phone,
 			String user_admin, String user_kakao, String user_auth, String user_status) {
 
 		this.user_no = user_no;
@@ -49,7 +49,7 @@ public class UserDTO {
 		this.user_birth = user_birth;
 		this.user_zipcode = user_zipcode;
 		this.user_addr = user_addr;
-		this.user_addrdetail = user_addrderail;
+		this.user_addrdetail = user_addrdetail;
 		this.user_gender = user_gender;
 		this.user_email = user_email;
 		this.user_phone = user_phone;
@@ -61,7 +61,7 @@ public class UserDTO {
 
 	// DAO - DB
 	public UserDTO(String user_name, String user_pw, String user_birth, String user_zipcode, String user_addr,
-			String user_addrderail, String user_gender, String user_email, String user_phone, String user_admin,
+			String user_addrdetail, String user_gender, String user_email, String user_phone, String user_admin,
 			String user_kakao, String user_auth, String user_status) {
 
 		this.user_name = user_name;
@@ -69,7 +69,7 @@ public class UserDTO {
 		this.user_birth = user_birth;
 		this.user_zipcode = user_zipcode;
 		this.user_addr = user_addr;
-		this.user_addrdetail = user_addrderail;
+		this.user_addrdetail = user_addrdetail;
 		this.user_gender = user_gender;
 		this.user_email = user_email;
 		this.user_phone = user_phone;
