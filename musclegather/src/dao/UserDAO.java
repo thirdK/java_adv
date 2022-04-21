@@ -30,7 +30,7 @@ public class UserDAO {
 			rs.next();
 			
 			user = new UserDTO(
-					user_no, 
+					user_no+"", 
 					rs.getString("user_name"),
 					rs.getString("user_pw"), 
 					rs.getString("user_birth"), 
@@ -40,10 +40,10 @@ public class UserDAO {
 					rs.getString("user_gender"), 
 					rs.getString("user_email"), 
 					rs.getString("user_phone"),
-					rs.getString("user_admin") == "1" ? true : false , 
-					rs.getString("user_kakao") == "1" ? true : false , 
+					rs.getString("user_admin"), 
+					rs.getString("user_kakao"), 
 					rs.getString("user_auth"), 
-					rs.getString("user_status") == "1" ? true : false 
+					rs.getString("user_status") 
 					);
 			
 		} catch (NamingException e) {

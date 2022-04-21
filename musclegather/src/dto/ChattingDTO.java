@@ -13,62 +13,73 @@ CREATE TABLE `chatting` (
 */
 
 public class ChattingDTO {
-	private int user_no;
-	private int chatr_no;
-	private String chat_context;
-	private String chat_regdate;
-	private String chat_images;
+	private String user_no;
+	private String other_user_no;
+	private String chatr_no;
+	private String chatr_content;
+	private String chatr_regdate;
+	private String chatr_images;
 	// 이미지는 여러개여도 보낼 때, 가져올 때 문자열 형태로 전달합니다.
 	// ArrayList처리는 DAO에서 합니다.
 	
 	public ChattingDTO() {;} // 자바빈즈용 기본 생성자
 	
-	public ChattingDTO(int user_no, int chatr_no, String chat_context, String chat_regdate, String chat_images) {
+	public ChattingDTO(String user_no, String other_user_no, String chatr_no, String chatr_content,
+			String chatr_regdate, String chatr_images) {
 		this.user_no = user_no;
+		this.other_user_no = other_user_no;
 		this.chatr_no = chatr_no;
-		this.chat_context = chat_context;
-		this.chat_regdate = chat_regdate;
-		this.chat_images = chat_images;
+		this.chatr_content = chatr_content;
+		this.chatr_regdate = chatr_regdate;
+		this.chatr_images = chatr_images;
 	}
 
-	public int getUser_no() {
+	public String getUser_no() {
 		return user_no;
 	}
 
-	public void setUser_no(int user_no) {
+	public void setUser_no(String user_no) {
 		this.user_no = user_no;
 	}
 
-	public int getChatr_no() {
+	public String getOther_user_no() {
+		return other_user_no;
+	}
+
+	public void setOther_user_no(String other_user_no) {
+		this.other_user_no = other_user_no;
+	}
+
+	public String getChatr_no() {
 		return chatr_no;
 	}
 
-	public void setChatr_no(int chatr_no) {
+	public void setChatr_no(String chatr_no) {
 		this.chatr_no = chatr_no;
 	}
 
-	public String getChat_context() {
-		return chat_context;
+	public String getChatr_content() {
+		return chatr_content;
 	}
 
-	public void setChat_context(String chat_context) {
-		this.chat_context = chat_context;
+	public void setChatr_content(String chatr_content) {
+		this.chatr_content = chatr_content;
 	}
 
-	public String getChat_regdate() {
-		return chat_regdate;
+	public String getChatr_regdate() {
+		return chatr_regdate;
 	}
 
-	public void setChat_regdate(String chat_regdate) {
-		this.chat_regdate = chat_regdate;
+	public void setChatr_regdate(String chatr_regdate) {
+		this.chatr_regdate = chatr_regdate;
 	}
 
-	public String getChat_images() {
-		return chat_images;
+	public String getChatr_images() {
+		return chatr_images;
 	}
 
-	public void setChat_images(String chat_images) {
-		this.chat_images = chat_images;
+	public void setChatr_images(String chatr_images) {
+		this.chatr_images = chatr_images;
 	}
 	
 }

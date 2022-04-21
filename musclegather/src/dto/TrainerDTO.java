@@ -21,10 +21,11 @@ CREATE TABLE `trainer` (
 */
 public class TrainerDTO extends UserDTO{
 	// user_no는 UserDTO를 상속하기 때문에 TrainerDTO에는 선언하지 않음(상속받으니까)
-	private int trainer_no;
+	private String trainer_no;
 	private String trainer_title;
 	private String trainer_content;
-	private boolean trainer_secret;		// false : 비공개, true : 공개
+	private String trainer_secret;		// 0 : 비공개, 1 : 공개
+	private String trainer_addr;
 	private String trainer_regdate;
 	private String trainer_images;	
 	// 이미지는 여러개여도 보낼 때, 가져올 때 문자열 형태로 전달합니다.
@@ -35,69 +36,93 @@ public class TrainerDTO extends UserDTO{
 
 	
 	//전체(부모클래스 필드를 포함한) 매개변수를 받는 생성자 -> 다른 매개변수의 생성자 필요시 오버로딩
-	public TrainerDTO(int user_no, String user_name, String user_pw, String user_birth, String user_zipcode,
-			String user_addr, String user_addrdetail, String user_gender, String user_email, String user_phone,
-			boolean user_admin, boolean user_kakao, String user_auth, boolean user_status, int trainer_no,
-			String trainer_title, String trainer_content, boolean trainer_secret, String trainer_regdate,
-			String trainer_images) {
-		super(user_no, user_name, user_pw, user_birth, user_zipcode, user_addr, user_addrdetail, user_gender,
+	public TrainerDTO(String user_no, String user_name, String user_pw, String user_birth, String user_zipcode,
+			String user_addr, String user_addrderail, String user_gender, String user_email, String user_phone,
+			String user_admin, String user_kakao, String user_auth, String user_status, String trainer_no,
+			String trainer_title, String trainer_content, String trainer_secret, String trainer_addr,
+			String trainer_regdate, String trainer_images) {
+		super(user_no, user_name, user_pw, user_birth, user_zipcode, user_addr, user_addrderail, user_gender,
 				user_email, user_phone, user_admin, user_kakao, user_auth, user_status);
 		this.trainer_no = trainer_no;
 		this.trainer_title = trainer_title;
 		this.trainer_content = trainer_content;
 		this.trainer_secret = trainer_secret;
+		this.trainer_addr = trainer_addr;
 		this.trainer_regdate = trainer_regdate;
 		this.trainer_images = trainer_images;
 	}
 
-	public int getTrainer_no() {
+	
+	
+	
+	public String getTrainer_no() {
 		return trainer_no;
 	}
 
-	public void setTrainer_no(int trainer_no) {
+	
+	public void setTrainer_no(String trainer_no) {
 		this.trainer_no = trainer_no;
 	}
+
 
 	public String getTrainer_title() {
 		return trainer_title;
 	}
 
+
 	public void setTrainer_title(String trainer_title) {
 		this.trainer_title = trainer_title;
 	}
+
 
 	public String getTrainer_content() {
 		return trainer_content;
 	}
 
+
 	public void setTrainer_content(String trainer_content) {
 		this.trainer_content = trainer_content;
 	}
 
-	public boolean isTrainer_secret() {
+
+	public String getTrainer_secret() {
 		return trainer_secret;
 	}
 
-	public void setTrainer_secret(boolean trainer_secret) {
+
+	public void setTrainer_secret(String trainer_secret) {
 		this.trainer_secret = trainer_secret;
 	}
+
+
+	public String getTrainer_addr() {
+		return trainer_addr;
+	}
+
+
+	public void setTrainer_addr(String trainer_addr) {
+		this.trainer_addr = trainer_addr;
+	}
+
 
 	public String getTrainer_regdate() {
 		return trainer_regdate;
 	}
 
+
 	public void setTrainer_regdate(String trainer_regdate) {
 		this.trainer_regdate = trainer_regdate;
 	}
+
 
 	public String getTrainer_images() {
 		return trainer_images;
 	}
 
+
 	public void setTrainer_images(String trainer_images) {
 		this.trainer_images = trainer_images;
 	}
-
 	
 	
 	

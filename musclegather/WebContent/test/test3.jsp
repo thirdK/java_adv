@@ -39,7 +39,7 @@
 			<td><%=gym.getGym_salary()%></td>
 		</tr>
 		<tr>
-			<td><%=gym.isGym_secret()%></td>
+			<td><%=gym.getGym_secret()%></td>
 		</tr>
 		<tr>
 			<td><%=gym.getGym_regdate()%></td>

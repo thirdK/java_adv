@@ -43,16 +43,16 @@
 			<td><%=user.getUser_phone()%></td>
 		</tr>
 		<tr>
-			<td><%=user.isUser_admin()%></td>
+			<td><%=user.getUser_admin()%></td>
 		</tr>
 		<tr>
-			<td><%=user.isUser_kakao()%></td>
+			<td><%=user.getUser_kakao()%></td>
 		</tr>
 		<tr>
 			<td><%=user.getUser_auth()%></td>
 		</tr>
 		<tr>
-			<td><%=user.isUser_status()%></td>
+			<td><%=user.getUser_status()%></td>
 		</tr>
 	</table>
 </body>

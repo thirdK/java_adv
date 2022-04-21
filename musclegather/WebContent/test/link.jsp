@@ -14,10 +14,7 @@
 	<%
 		String no = request.getParameter("no");
 		int n = Integer.parseInt(no);
-		System.out.print(n);
 	%>
-	
-	<%=n %>
 	
 	<%
 		GymDTO gym = new GymDAO().getGym(n);
@@ -54,16 +51,16 @@
 			<td><%=gym.getUser_phone()%></td>
 		</tr>
 		<tr>
-			<td><%=gym.isUser_admin()%></td>
+			<td><%=gym.getUser_admin()%></td>
 		</tr>
 		<tr>
-			<td><%=gym.isUser_kakao()%></td>
+			<td><%=gym.getUser_kakao()%></td>
 		</tr>
 		<tr>
 			<td><%=gym.getUser_auth()%></td>
 		</tr>
 		<tr>
-			<td><%=gym.isUser_status()%></td>
+			<td><%=gym.getUser_status()%></td>
 		</tr>
 
 
@@ -91,7 +88,7 @@
 			<td><%=gym.getGym_salary()%></td>
 		</tr>
 		<tr>
-			<td><%=gym.isGym_secret()%></td>
+			<td><%=gym.getGym_secret()%></td>
 		</tr>
 		<tr>
 			<td><%=gym.getGym_regdate()%></td>

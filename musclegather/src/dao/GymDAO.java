@@ -38,16 +38,16 @@ public class GymDAO {
 					user.getUser_gender(),
 					user.getUser_email(),
 					user.getUser_phone(),
-					user.isUser_admin(),
-					user.isUser_kakao(),
+					user.getUser_admin(),
+					user.getUser_kakao(),
 					user.getUser_auth(),
-					user.isUser_status(),
-					rs.getInt("gym_no"),
+					user.getUser_status(),
+					rs.getString("gym_no"),
 					rs.getString("gym_name"),
 					rs.getString("gym_content"),
 					rs.getString("gym_addr"),
-					rs.getInt("gym_salary"),
-					rs.getString("gym_secret") == "1" ? true : false,
+					rs.getString("gym_salary"),
+					rs.getString("gym_secret"),
 					rs.getString("gym_regdate"),
 					rs.getString("gym_images")
 					);
@@ -79,14 +79,14 @@ public class GymDAO {
 	public ArrayList<GymDTO> getList(){
 		String sql = "SELECT user_no FROM gym";
 		ArrayList<GymDTO> gyms = new ArrayList<GymDTO>();
-		ResultSet rs2 = null;
+		ResultSet rs_inner = null;
 		try {
 			conn = ConnectionPool.get();
 			pstmt = conn.prepareStatement(sql);
-			rs2 = pstmt.executeQuery();
+			rs_inner = pstmt.executeQuery();
 			
-			while(rs2.next()) {
-				int u_no = rs2.getInt("user_no");
+			while(rs_inner.next()) {
+				int u_no = rs_inner.getInt("user_no");
 				gyms.add(getGym(u_no));
 			}
 			
@@ -98,7 +98,7 @@ public class GymDAO {
 			e.printStackTrace();
 		} finally {
 			try {
-				if(rs2 != null) rs2.close();
+				if(rs_inner != null) rs_inner.close();
 				if(pstmt != null) pstmt.close();
 				if(conn != null) conn.close();
 			} catch (SQLException e) {
