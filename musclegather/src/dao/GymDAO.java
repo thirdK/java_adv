@@ -17,7 +17,7 @@ public class GymDAO {
 	PreparedStatement pstmt = null;
 	ResultSet rs = null;
 	
-	public GymDTO getGymList(int user_no) {
+	public GymDTO getGym(int user_no) {
 		String sql = "SELECT * FROM gym WHERE user_no = ?";
 		GymDTO gym = null;
 		UserDTO user = new UserDAO().getUser(user_no);
@@ -76,7 +76,9 @@ public class GymDAO {
 		return gym;
 	}
 	
-	public ArrayList<GymDTO> getList(){
+	
+	
+	public ArrayList<GymDTO> getGymList(){
 		String sql = "SELECT user_no FROM gym";
 		ArrayList<GymDTO> gyms = new ArrayList<GymDTO>();
 		ResultSet rs_inner = null;
@@ -110,4 +112,5 @@ public class GymDAO {
 		
 		return gyms;
 	}
+
 }

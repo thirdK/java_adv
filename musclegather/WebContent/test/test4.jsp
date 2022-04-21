@@ -11,7 +11,7 @@
 <body>
 	<%
 	ArrayList<GymDTO> gyms = new ArrayList<>();
-	gyms = new GymDAO().getList();
+	gyms = new GymDAO().getGymList();
 	%>
 	<form id="frm" action="link.jsp" method="post">
 		<table>
