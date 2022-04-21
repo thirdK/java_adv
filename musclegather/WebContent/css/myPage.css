@@ -1,5 +1,9 @@
 @charset "UTF-8";
 
-.row{
+.info_row{
 	display: flex;
+	margin : 5px 0;
+}
+.info_header{
+	width: 100px;
 }

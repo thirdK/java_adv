@@ -18,19 +18,19 @@ public class UserDAO {
 	
 	//getUser는 user_no으로 user테이블 정보를 가져옵니다.
 	//추가프로필 (Trainer/Gym 테이블) 정보는 가져오지 않으므로 주의
-	public UserDTO getUser(int user_no) {
+	public UserDTO getUser(String user_no) {
 		String sql = "SELECT * FROM user WHERE user_no = ?";
 		UserDTO user = null;
 		
 		try {
 			conn = ConnectionPool.get();
 			pstmt = conn.prepareStatement(sql);
-			pstmt.setInt(1, user_no);
+			pstmt.setString(1, user_no);
 			rs = pstmt.executeQuery();
 			rs.next();
 			
 			user = new UserDTO(
-					user_no+"", 
+					user_no, 
 					rs.getString("user_name"),
 					rs.getString("user_pw"), 
 					rs.getString("user_birth"), 
@@ -69,4 +69,5 @@ public class UserDAO {
 		
 		return user;
 	}
+	
 }

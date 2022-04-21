@@ -13,11 +13,10 @@
 
 	<%
 		String no = request.getParameter("no");
-		int n = Integer.parseInt(no);
 	%>
 	
 	<%
-		GymDTO gym = new GymDAO().getGym(n);
+		GymDTO gym = new GymDAO().getGym(no);
 	%>
 	<table>
 		<tr>

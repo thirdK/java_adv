@@ -17,14 +17,14 @@ public class GymDAO {
 	PreparedStatement pstmt = null;
 	ResultSet rs = null;
 	
-	public GymDTO getGym(int user_no) {
+	public GymDTO getGym(String user_no) {
 		String sql = "SELECT * FROM gym WHERE user_no = ?";
 		GymDTO gym = null;
 		UserDTO user = new UserDAO().getUser(user_no);
 		try {
 			conn = ConnectionPool.get();
 			pstmt = conn.prepareStatement(sql);
-			pstmt.setInt(1, user_no);
+			pstmt.setString(1, user_no);
 			rs = pstmt.executeQuery();
 			rs.next();
 			gym = new GymDTO(
@@ -89,7 +89,7 @@ public class GymDAO {
 			
 			while(rs_inner.next()) {
 				int u_no = rs_inner.getInt("user_no");
-				gyms.add(getGym(u_no));
+				gyms.add(getGym(Integer.toString(u_no)));
 			}
 			
 		} catch (NamingException e) {
