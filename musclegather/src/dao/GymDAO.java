@@ -4,6 +4,7 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.time.LocalDate;
 import java.util.ArrayList;
 
 import javax.naming.NamingException;
@@ -113,4 +114,40 @@ public class GymDAO {
 		return gyms;
 	}
 
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	public boolean insert(String gym_name, String gym_content, String gym_addr, String gym_salary, String gym_images)
+			throws NamingException, SQLException {
+				
+				Connection conn = null;
+				PreparedStatement pstmt = null;
+				
+				try {
+					String sql = "INSERT INTO gym VALUES (NULL,?,?,?,?,?,?,?,?)";
+					conn = ConnectionPool.get();
+					pstmt = conn.prepareStatement(sql);
+						pstmt.setInt(1, 1);
+						pstmt.setString(2, gym_name);
+						pstmt.setString(3, gym_content);
+						pstmt.setString(4, gym_addr);
+						pstmt.setString(5, gym_salary);
+						pstmt.setInt(6, 0);
+						pstmt.setString(7, LocalDate.now().toString());
+						pstmt.setString(8, gym_images);
+					int result = pstmt.executeUpdate();
+					
+					return (result==1) ? true : false;			
+					
+				} finally {
+					if(pstmt != null) pstmt.close();
+					if(conn != null) conn.close();
+				}
+			}
 }
