@@ -1,0 +1,43 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%
+	//블럭의 번호(몇번째 블럭) = (현재페이지-1 / 블럭당 페이지 수) + 1;
+block1 = ((curPageNo1 - 1) / PAGE_PER_BLOCK) + 1;
+//블럭의 시작 페이지 번호 = ((블럭 번호 - 1) * 블럭당 페이지 수) +1;
+blockStartPageNo1 = ((block1 - 1) * PAGE_PER_BLOCK) + 1;
+//블럭의 끝 페이지 번호 = (블럭의 시작 페이지 번호 + 블럭당 페이지 수) - 1;
+blockEndPageNo1 = (blockStartPageNo1 + PAGE_PER_BLOCK) - 1;
+
+if (block1 > 1) {
+	//[맨처음]
+	out.print("&nbsp[<a href='notifyList.jsp?pageTo=1&pageFrom=" + curPageNo2 + "'>" + "맨처음</a>]&nbsp");
+
+	//이전 블록 시작 페이지 = (현재)블럭 시작페이지 번호 - 블록당 페이지 수;
+	previousBlockStartPageNo1 = blockStartPageNo1 - PAGE_PER_BLOCK;
+
+	//[이전]
+	out.print("&nbsp[<a href='notifyList.jsp?pageTo=" + previousBlockStartPageNo1 + "&pageFrom=" + curPageNo2
+	+ "'>이전</a>]&nbsp");
+}
+
+// i를 (블록의 시작 페이지 넘버)부터 (블록의 끝 페이지 넘버)까지 i++ 
+for (int i = blockStartPageNo1; i <= blockEndPageNo1; i++) {
+	if (i > totalPage1)
+		break;
+	if (i == curPageNo1)
+		out.print("&nbsp" + i + "&nbsp");
+	else
+		out.print("&nbsp[<a href='notifyList.jsp?pageTo=" + i + "&pageFrom=" + curPageNo2 + "'>" + i + "</a>]");
+	// i가 총페이지를 넘어가면 반복 종료
+	// i가 현재 페이지와 같으면 i출력
+	// 그 외에는 [i]출력
+	// 즉, 지금 블럭의 시작 부터 끝까지 페이지 번호를 링크걸어서 뿌려줌
+}
+
+if (blockEndPageNo1 < totalPage1) {
+	//다음 블럭 시작 페이지
+	nextBlockStartPageNo1 = blockEndPageNo1 + 1;
+	out.print("&nbsp[<a href = 'notifyList.jsp?pageTo=" + nextBlockStartPageNo1 + "&pageFrom=" + curPageNo2
+	+ "'>다음</a>]&nbsp");
+	out.print("&nbsp[<a href = 'notifyList.jsp?pageTo=" + totalPage1 + "&pageFrom=" + curPageNo2 + "'>맨끝</a>]&nbsp");
+}
+%>

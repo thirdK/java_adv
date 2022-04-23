@@ -34,6 +34,18 @@ public class TrainerDTO extends UserDTO{
 	public TrainerDTO() {;}		//자바 빈즈를 위한 기본생성자
 	//자식 클래스로 빈즈사용이 되는지는 모름. 테스트 필요
 
+	//부모필드를 미포함한 생성자 -> 추가프로필 수정용
+	public TrainerDTO(String trainer_no, String trainer_title, String trainer_content, String trainer_secret,
+			String trainer_addr, String trainer_regdate, String trainer_images) {
+		this.trainer_no = trainer_no;
+		this.trainer_title = trainer_title;
+		this.trainer_content = trainer_content;
+		this.trainer_secret = trainer_secret;
+		this.trainer_addr = trainer_addr;
+		this.trainer_regdate = trainer_regdate;
+		this.trainer_images = trainer_images;
+	}
+	
 	
 	//전체(부모클래스 필드를 포함한) 매개변수를 받는 생성자 -> 다른 매개변수의 생성자 필요시 오버로딩
 	public TrainerDTO(String user_no, String user_name, String user_pw, String user_birth, String user_zipcode,
@@ -52,7 +64,6 @@ public class TrainerDTO extends UserDTO{
 		this.trainer_images = trainer_images;
 	}
 
-	
 	
 	
 	public String getTrainer_no() {

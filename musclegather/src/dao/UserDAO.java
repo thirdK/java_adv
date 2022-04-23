@@ -4,7 +4,6 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.util.ArrayList;
 
 import javax.naming.NamingException;
 
@@ -111,18 +110,16 @@ public class UserDAO {
 		return result==1;
 	}
 	
-	public ArrayList<String> getToList(String user_no) {
-		String sql = "SELECT user_to_no FROM resume WHERE user_from_no = ?";
-		ArrayList<String> toList = new ArrayList<String>(); 
+	public boolean deleteUserInfo(String user_no) {
+		int result=0;
+
+		String sql = "UPDATE user SET user_status = 1 WHERE user_no = ?";
 		try {
 			conn = ConnectionPool.get();
 			pstmt = conn.prepareStatement(sql);
 			pstmt.setString(1, user_no);
 			
-			rs = pstmt.executeQuery();
-			while(rs.next()) {
-				toList.add(rs.getString(1));
-			}
+			result = pstmt.executeUpdate();
 		} catch (NamingException e) {
 			e.printStackTrace();
 		} catch (SQLException e) {
@@ -131,7 +128,6 @@ public class UserDAO {
 			e.printStackTrace();
 		} finally {
 			try {
-				if(rs != null) rs.close();
 				if(pstmt != null) pstmt.close();
 				if(conn != null) conn.close();
 			} catch (SQLException e) {
@@ -140,38 +136,6 @@ public class UserDAO {
 				throw new RuntimeException(e);
 			}
 		}
-		return toList;
-	}
-	
-	public ArrayList<String> getFromList(String user_no) {
-		String sql = "SELECT user_From_no FROM resume WHERE user_to_no = ?";
-		ArrayList<String> fromList = new ArrayList<String>(); 
-		try {
-			conn = ConnectionPool.get();
-			pstmt = conn.prepareStatement(sql);
-			pstmt.setString(1, user_no);
-			
-			rs = pstmt.executeQuery();
-			while(rs.next()) {
-				fromList.add(rs.getString(1));
-			}
-		} catch (NamingException e) {
-			e.printStackTrace();
-		} catch (SQLException e) {
-			e.printStackTrace();
-		} catch (Exception e) {
-			e.printStackTrace();
-		} finally {
-			try {
-				if(rs != null) rs.close();
-				if(pstmt != null) pstmt.close();
-				if(conn != null) conn.close();
-			} catch (SQLException e) {
-				e.printStackTrace();
-			} catch (Exception e) {
-				throw new RuntimeException(e);
-			}
-		}
-		return fromList;
+		return result==1;
 	}
 }

@@ -21,7 +21,7 @@ public class GymDAO {
 	public GymDTO getGym(String user_no) {
 		String sql = "SELECT * FROM gym WHERE user_no = ?";
 		GymDTO gym = null;
-		UserDTO user = new UserDAO().getUser(user_no);
+		UserDTO user = (new UserDAO()).getUser(user_no);
 		try {
 			conn = ConnectionPool.get();
 			pstmt = conn.prepareStatement(sql);

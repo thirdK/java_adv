@@ -8,26 +8,28 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
-<link rel="stylesheet" href="../css/myPage.css">
+<link rel="stylesheet" href="../../css/myPage.css">
 
 </head>
-	<%
-		/* session.setAttribute("이름", user_no); */
-	/* String user_no = session.getAttribute(name); */
-	String user_no = "2"; //나중에 세션으로 받아야함
+<%
+	/* session.setAttribute("이름", user_no); */
+/* String user_no = session.getAttribute(name); */
+String user_no = "2"; //나중에 세션으로 받아야함
 
-	UserDTO user = new UserDAO().getUser(user_no);
-	StringTokenizer st = new StringTokenizer(user.getUser_phone(), "-");
-	String phone_selected = st.nextToken();
-	String gender_checked = user.getUser_gender();
-	%>
+UserDTO user = new UserDAO().getUser(user_no);
+StringTokenizer st = new StringTokenizer(user.getUser_phone(), "-");
+String phone_selected = st.nextToken(); //첫번째 토큰은 010, 011....
+String gender_checked = user.getUser_gender();
+%>
 <body>
 	<div class="myPage">
-		<form name="frm" action="myPageDB.jsp?user_no=<%=user_no %>" method="POST">
+		<form name="frm" action="changeInfoDB.jsp?user_no=<%=user_no%>" method="POST">
+			<!-- 정보넘기기 위한 hidden 태그 -->
+			<input type="text" id="input-user_no" hidden="true" value="<%=user.getUser_no()%>">
+			<input type="text" id="input-phone" hidden="true" value="" name="user_phone">
+			<input type="text" id="input-pw" hidden="true" value="" name="user_pw">
+			
 			<div class="info_row">
-				<input type="text" id="input-user_no" hidden="true" value="<%=user.getUser_no()%>">
-				<input type="text" id="input-phone" hidden="true" value="" name="user_phone">
-				<input type="text" id="input-pw" hidden="true" value="" name="user_pw">
 				<div class="info_header">
 					<label for="input-user_name">이름</label>
 				</div>
@@ -69,9 +71,9 @@
 				<div class="info_header">성별</div>
 				<div>
 					남성
-					<input type="radio" name="user_gender" value="남" id="gender_m">
+					<input type="radio" name="user_gender" value="M" id="gender_m">
 					여성
-					<input type="radio" name="user_gender" value="여" id="gender_f">
+					<input type="radio" name="user_gender" value="F" id="gender_f">
 				</div>
 			</div>
 			<div class="info_row">
@@ -112,15 +114,16 @@
 
 			</div>
 			<div>
-				<input type="button"  onclick='check(); checkPw();' value="수정하기">
+				<input type="button" onclick="check(); combineInfo();" value="수정하기">
 			</div>
 		</form>
 	</div>
 </body>
 
 <script src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
+<script type="text/javascript" src="./changeInfo.js"></script>
+<script type="text/javascript" src="./addressAPI.js"></script>
 
-<script src="myPage.js"></script>
 <script type="text/javascript">
 
 	//즉시 실행 함수
@@ -131,7 +134,7 @@
 	
 	(function(){	//DB의 성별을 확인해서 페이지 진입때 checked한다.
 		var result = '<%=gender_checked%>';
-		if (result == "남") {
+		if (result == "M") {
 			document.getElementById('gender_m').setAttribute('checked', 'true');
 		} else {
 			document.getElementById('gender_f').setAttribute('checked', 'true');
