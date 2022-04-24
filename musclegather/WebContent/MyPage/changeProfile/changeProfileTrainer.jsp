@@ -15,7 +15,7 @@
 	<div class="changeProfile">
 	<h1>추가 프로필 입력</h1>
 	
-		<form action="changeProfileTrainerDB.jsp">
+		<form action="changeProfileTrainerDB.jsp" enctype="multipart/form-data">
 			<input type="text" name="user_no" value="<%=user_no %>" hidden="true">
 			<div class="profile_row">
 				<div>제목</div>
@@ -23,6 +23,14 @@
 			<div class="profile_row">
 				<div>
 					<input type="text" name="trainer_title" value="<%=trainer.getTrainer_title() %>">
+				</div>
+			</div>
+			<div class="profile_row">
+				<div>희망 지역</div>
+			</div>
+			<div class="profile_row">
+				<div>
+					<input type="text" name="trainer_addr" value="<%=trainer.getTrainer_addr() %>">
 				</div>
 			</div>
 			<div class="profile_row">
@@ -42,7 +50,7 @@
 			</div>
 			<div class="profile_row">
 				<div>
-					<input type="file" name="trainer_images" >
+					<input type="file" name="trainer_images">
 				</div>
 			</div>
 			

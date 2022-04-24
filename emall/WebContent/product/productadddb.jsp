@@ -59,7 +59,6 @@ while (iter.hasNext()) {
 		if (name.equals("images")) {
 			pimage = item.getName(); //사진이름
 			arr.add(pimage);//이미지파일 이름을 ArrayList에 저장함(여러개면 여러개 저장됨)
-			System.out.println(pimage);
 			pfile = item.get(); //사진내용
 			
 			//서버에 사진 저장
