@@ -7,11 +7,15 @@ import javax.servlet.http.HttpServletRequestWrapper;
 
 public class Test {
 	public static void main(String[] args) {
-		String test = "asdf.jsp/a2.jsp/";
+		String test = "/";
 		StringTokenizer st = new StringTokenizer(test, "/");
 		
-		System.out.println(st.nextToken());
-		System.out.println(st.nextToken());
+		if(!st.hasMoreElements()) {
+			System.out.println("없어");
+		}
+		while(st.hasMoreTokens()) {
+			System.out.println(st.nextToken());
+		}
 		
 	}
 }

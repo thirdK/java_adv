@@ -9,20 +9,28 @@
 </head>
 <%
 	String user_no = "4";
-	TrainerDTO trainer = (new TrainerDAO()).getTrainer(user_no);
+TrainerDTO trainer = (new TrainerDAO()).getTrainer(user_no);
 %>
 <body>
 	<div class="changeProfile">
-	<h1>추가 프로필 입력</h1>
-	
-		<form action="changeProfileTrainerDB.jsp" enctype="multipart/form-data">
-			<input type="text" name="user_no" value="<%=user_no %>" hidden="true">
+		<h1>추가 프로필 입력</h1>
+
+		<form action="changeProfileTrainerDB.jsp" enctype="multipart/form-data" method="post">
+			<input type="text" name="user_no" value="<%=user_no%>" hidden="true">
+			<div class="profile_row">
+				<div>사진</div>
+			</div>
+			<div class="profile_row">
+				<div>
+					<img src="/images/<%=trainer.getTrainer_images()%>">
+				</div>
+			</div>
 			<div class="profile_row">
 				<div>제목</div>
 			</div>
 			<div class="profile_row">
 				<div>
-					<input type="text" name="trainer_title" value="<%=trainer.getTrainer_title() %>">
+					<input type="text" name="trainer_title" value="<%=trainer.getTrainer_title()%>">
 				</div>
 			</div>
 			<div class="profile_row">
@@ -30,7 +38,7 @@
 			</div>
 			<div class="profile_row">
 				<div>
-					<input type="text" name="trainer_addr" value="<%=trainer.getTrainer_addr() %>">
+					<input type="text" name="trainer_addr" value="<%=trainer.getTrainer_addr()%>">
 				</div>
 			</div>
 			<div class="profile_row">
@@ -39,21 +47,22 @@
 
 			<div class="profile_row">
 				<div>
-					<textarea rows="20" cols="30" name="trainer_content"><%=trainer.getTrainer_content() %></textarea>
+					<textarea rows="20" cols="30" name="trainer_content"><%=trainer.getTrainer_content()%></textarea>
 				</div>
 			</div>
 
 			<div class="profile_row">
 				<div>
-					정보를 공개합니다. <input type="checkbox" name="trainer_secret" value="true"> 
+					정보를 공개합니다.
+					<input type="checkbox" name="trainer_secret" value="true">
 				</div>
 			</div>
 			<div class="profile_row">
 				<div>
-					<input type="file" name="trainer_images">
+					<input type="file" name="trainer_images" accept="image/jpeg, image/png">
 				</div>
 			</div>
-			
+
 			<div class="profile_row">
 				<div>
 					<button>저장하기</button>
@@ -61,6 +70,6 @@
 			</div>
 		</form>
 	</div>
-	
+
 </body>
 </html>

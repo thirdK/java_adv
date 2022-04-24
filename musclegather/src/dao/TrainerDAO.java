@@ -80,7 +80,7 @@ public class TrainerDAO {
 				+ "trainer_content = ?, "
 				+ "trainer_secret = ?,"
 				+ "trainer_addr = ?, "
-				+ "trainer_regdate = ?,"
+				+ "trainer_regdate = now(),"
 				+ "trainer_images = ?"
 				+ "WHERE user_no = ?";
 
@@ -91,9 +91,8 @@ public class TrainerDAO {
 				pstmt.setString(2, trainer.getTrainer_content());
 				pstmt.setString(3, trainer.getTrainer_secret());
 				pstmt.setString(4, trainer.getTrainer_addr());
-				pstmt.setString(5, trainer.getTrainer_regdate());
-				pstmt.setString(6, trainer.getTrainer_images());
-				pstmt.setString(7, trainer.getUser_no());
+				pstmt.setString(5, trainer.getTrainer_images());
+				pstmt.setString(6, trainer.getUser_no());
 				result = pstmt.executeUpdate();
 			} catch (NamingException e) {
 				e.printStackTrace();
