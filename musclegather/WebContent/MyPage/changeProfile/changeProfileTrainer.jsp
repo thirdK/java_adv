@@ -8,7 +8,7 @@
 <title>Insert title here</title>
 </head>
 <%
-	String user_no = "4";
+	String user_no = "3";
 TrainerDTO trainer = (new TrainerDAO()).getTrainer(user_no);
 %>
 <body>
@@ -21,9 +21,24 @@ TrainerDTO trainer = (new TrainerDAO()).getTrainer(user_no);
 				<div>사진</div>
 			</div>
 			<div class="profile_row">
+
+				<%
+					if (trainer.getTrainer_images() != null && !trainer.getTrainer_images().equals("/")) {
+					System.out.println(trainer.getTrainer_images());
+				%>
 				<div>
 					<img src="/images/<%=trainer.getTrainer_images()%>">
 				</div>
+				<%
+					} else {
+				%>
+				<div>
+					<p>등록된 사진이 없습니다.</p>
+				</div>
+				<%
+					}
+				%>
+
 			</div>
 			<div class="profile_row">
 				<div>제목</div>

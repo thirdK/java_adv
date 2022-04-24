@@ -115,11 +115,47 @@ public class GymDAO {
 	}
 
 	
-	
-	
-	
-	
-	
+	public boolean changeGymProfile(GymDTO gym) {
+		int result = 0;
+		String sql = "UPDATE gym SET "
+				+ "gym_name = ?, "
+				+ "gym_content = ?, "
+				+ "gym_secret = ?,"
+				+ "gym_addr = ?, "
+				+ "gym_regdate = now(),"
+				+ "gym_salary = ?, "
+				+ "gym_images = ?"
+				+ "WHERE user_no = ?";
+
+			try {
+				conn = ConnectionPool.get();
+				pstmt = conn.prepareStatement(sql);
+				pstmt.setString(1, gym.getGym_name());
+				pstmt.setString(2, gym.getGym_content());
+				pstmt.setString(3, gym.getGym_secret());
+				pstmt.setString(4, gym.getGym_addr());
+				pstmt.setString(5, gym.getGym_salary());
+				pstmt.setString(6, gym.getGym_images());
+				pstmt.setString(7, gym.getUser_no());
+				result = pstmt.executeUpdate();
+			} catch (NamingException e) {
+				e.printStackTrace();
+			} catch (SQLException e) {
+				e.printStackTrace();
+			} catch (Exception e) {
+				e.printStackTrace();
+			} finally {
+				try {
+					if(pstmt != null) pstmt.close();
+					if(conn != null) conn.close();
+				} catch (SQLException e) {
+					e.printStackTrace();
+				} catch (Exception e) {
+					throw new RuntimeException(e);
+				}
+			}
+		return result == 1;
+	}
 	
 	
 	
