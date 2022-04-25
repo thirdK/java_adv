@@ -26,13 +26,13 @@ StringTokenizer st = new StringTokenizer(gym.getGym_images(), "/");
 
 				<%
 					if (gym.getGym_images() != null && !gym.getGym_images().equals("/")) {
-						while (st.hasMoreTokens()) {
-						%>
-							<div>
-								<img src="/images/<%=st.nextToken()%>">
-							</div>
-						<%
-						}
+					while (st.hasMoreTokens()) {
+				%>
+				<div>
+					<img src="/images/<%=st.nextToken()%>">
+				</div>
+				<%
+					}
 				} else {
 				%>
 				<div>
@@ -48,17 +48,10 @@ StringTokenizer st = new StringTokenizer(gym.getGym_images(), "/");
 			</div>
 			<div class="profile_row">
 				<div>
-					<input type="text" name="gym_name" value="<%=gym.getGym_name()%>">
+					<input type="text" name="gym_name" id="gym_name" value="<%=gym.getGym_name()%>">
 				</div>
 			</div>
-			<div class="profile_row">
-				<div>주소</div>
-			</div>
-			<div class="profile_row">
-				<div>
-					<input type="text" name="gym_addr" value="<%=gym.getGym_addr()%>">
-				</div>
-			</div>
+
 			<div class="profile_row">
 				<div>기타 소개 작성</div>
 			</div>
@@ -69,28 +62,47 @@ StringTokenizer st = new StringTokenizer(gym.getGym_images(), "/");
 				</div>
 			</div>
 
-			<!-- 연봉!! -->
 			<div class="profile_row">
 				<div>
-					<p>연봉</p>
+					<p>급여</p>
 				</div>
 				<div>
 					<input type="text" name="gym_salary" value="<%=gym.getGym_salary()%>">
 				</div>
 			</div>
 
+
+			<div class="profile_row">
+				<div>주소</div>
+			</div>
+			<div class="profile_row">
+
+				<div>
+					<input type="text" name="gym_zipcode" id="sample6_postcode" placeholder="우편번호" value="" hidden="true">
+					<input type="button" onclick="execDaumPostcode()" value="주소 찾기">
+					<br>
+					<input type="text" name="gym_addr" id="sample6_address" placeholder="주소" value="<%=gym.getGym_addr()%>">
+					<br>
+					<input type="text" name="gym_addrdetail" id="sample6_detailAddress" placeholder="상세주소" value="" hidden="true">
+					<input type="text" id="sample6_extraAddress" placeholder="참고항목" hidden="true">
+				</div>
+			</div>
+
+			<div class="profile_row">
+				<div id="map" style="width: 500px; height: 400px;"></div>
+			</div>
+
+			<div class="profile_row">
+				<div>
+					<input type="file" name="gym_images" accept="image/jpeg, image/png" multiple="multiple">
+				</div>
+			</div>
 			<div class="profile_row">
 				<div>
 					정보를 공개합니다.
 					<input type="checkbox" name="gym_secret" value="true">
 				</div>
 			</div>
-			<div class="profile_row">
-				<div>
-					<input type="file" name="gym_images" accept="image/jpeg, image/png" multiple="multiple">
-				</div>
-			</div>
-
 			<div class="profile_row">
 				<div>
 					<button>저장하기</button>
@@ -100,4 +112,11 @@ StringTokenizer st = new StringTokenizer(gym.getGym_images(), "/");
 	</div>
 
 </body>
+
+<!-- f706e0719e45256070f1d933f2e70af4 -->
+<script src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
+<script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=f706e0719e45256070f1d933f2e70af4&libraries=services"></script>
+<script src="mapAPI.js"></script>
+<script src="addressAPI.js"></script>
+
 </html>

@@ -6,6 +6,7 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
+
 </head>
 <%
 	String user_no = "3";
@@ -53,7 +54,9 @@ TrainerDTO trainer = (new TrainerDAO()).getTrainer(user_no);
 			</div>
 			<div class="profile_row">
 				<div>
-					<input type="text" name="trainer_addr" value="<%=trainer.getTrainer_addr()%>">
+					<input type="text" name="trainer_addr" id="trainer_addr" value="<%=trainer.getTrainer_addr()%>" readonly="readonly">
+					<select name="sido1" id="sido1"></select>
+					<select name="gugun1" id="gugun1"></select>
 				</div>
 			</div>
 			<div class="profile_row">
@@ -87,4 +90,16 @@ TrainerDTO trainer = (new TrainerDAO()).getTrainer(user_no);
 	</div>
 
 </body>
+<script src="areaList.js?ver=1"></script>
+<script>
+	var sidoArea = document.getElementById('sido1');
+	var gugunArea = document.getElementById('gugun1');
+	var addrArea = document.getElementById('trainer_addr');
+	sidoArea.onchange = function() {
+		addrArea.value = sidoArea.value;
+	}
+	gugunArea.onchange = function() {
+		addrArea.value += " " + gugunArea.value;
+	}
+</script>
 </html>
