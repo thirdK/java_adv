@@ -1,29 +1,37 @@
 @charset "UTF-8";
 
+.frm {
+	margin: auto;
+	width: 660px;
+}
+
 .myPage {
-	padding:30px;
+	padding: 30px;
 	align-content: center;
-	
 }
 
 input {
 	letter-spacing: 1px;
 }
 
-select, 
-input[type=date], 
-input[type=password], 
-input[type=text]:not(.input_phone)
+select, input[type=date], input[type=password], input[type=text]:not(.input_phone)
 	{
 	padding-left: 10px;
+}
+
+.info_body {
+	width: 100%;
+	display: flex;
+}
+
+.info_body_phone {
+	width: 120%
 }
 
 .info_row {
 	display: flex;
 	padding: 10px 0;
 	align-items: center;
-	/* justify-content : center; */
-	margin: 0;
 }
 
 .info_header {
@@ -33,6 +41,7 @@ input[type=text]:not(.input_phone)
 .info_phone {
 	display: flex;
 	align-items: center;
+	width: 100%;
 }
 
 .info_phone input {
@@ -41,4 +50,25 @@ input[type=text]:not(.input_phone)
 
 .info_phone>* {
 	margin-right: 8px;
+}
+
+input[type=button] {
+	padding: 3px;
+	height: 35px;
+	margin-left: 5px;
+	width: 125px;
+	letter-spacing: 10px
+}
+
+.info_zipcode {
+	width: 100%;
+}
+
+.input_button{
+	justify-content: flex-end;
+}
+
+.title{
+	justify-content: center;
+	margin-bottom: 15px
 }
