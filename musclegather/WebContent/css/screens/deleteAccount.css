@@ -1,0 +1,26 @@
+@charset "UTF-8";
+
+.frm{
+	width: 660px;
+	margin: auto;
+}
+
+.frm h1{
+	margin: 40px 0;
+	
+	text-align: center;
+}
+.frm > div:nth-child(2){
+	margin: 10px 0;
+}
+.frm button{
+	padding: 3px 3px 3px 10px;
+	height: 35px;
+	margin-left: 5px;
+	width: 125px;
+	letter-spacing: 10px;
+}
+.frm > div:nth-child(3){
+	display: flex;
+	justify-content: flex-end;
+}

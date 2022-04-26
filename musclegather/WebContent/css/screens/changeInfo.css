@@ -53,7 +53,7 @@ select, input[type=date], input[type=password], input[type=text]:not(.input_phon
 }
 
 input[type=button] {
-	padding: 3px;
+	padding: 3px 3px 3px 10px;
 	height: 35px;
 	margin-left: 5px;
 	width: 125px;
@@ -72,3 +72,4 @@ input[type=button] {
 	justify-content: center;
 	margin-bottom: 15px
 }
+

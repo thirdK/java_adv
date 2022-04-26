@@ -5,8 +5,9 @@
 <meta charset="UTF-8" />
 <meta http-equiv="X-UA-Compatible" content="IE=edge" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>grid pach</title>
+<title>회원탈퇴</title>
 <link type="text/css" rel="stylesheet" href="/src/styles/default.css" />
+<link type="text/css" rel="stylesheet" href="/css/screens/deleteAccount.css" />
 
 <script type="text/javascript" src="/src/js/jquery-3.6.0.min.js"></script>
 <script type="text/javascript" src="/src/js/default.js"></script>
@@ -40,9 +41,9 @@
 					<!-- 컨탠츠 구역 -->
 					<!-- ========================================================= -->
 					<div class="deleteAccount">
-						<form action="deleteAccountDB.jsp" method="POST">
+						<form class="frm" action="deleteAccountDB.jsp" method="POST">
 							<div>
-								<p>회원 탈퇴를 요청하려면 비밀번호를 입력하세요</p>
+								<h1>회원 탈퇴를 요청하려면 비밀번호를 입력하세요</h1>
 							</div>
 							<div>
 								<input type="password" name="user_pw">

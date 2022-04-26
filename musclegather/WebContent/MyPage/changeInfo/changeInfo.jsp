@@ -12,7 +12,7 @@
 <title>회원정보 수정</title>
 <link type="text/css" rel="stylesheet" href="/src/styles/default.css" />
 <!-- 개인css -->
-<link type="text/css" rel="stylesheet" href="/css/style.css?ver=1" />
+<link type="text/css" rel="stylesheet" href="/css/screens/changeInfo.css" />
 
 <script type="text/javascript" src="/src/js/jquery-3.6.0.min.js"></script>
 <script type="text/javascript" src="/src/js/default.js"></script>
