@@ -6,10 +6,16 @@
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="UTF-8">
-<title>Insert title here</title>
-<link rel="stylesheet" href="../../css/myPage.css">
+<meta charset="UTF-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>회원정보 수정</title>
+<link type="text/css" rel="stylesheet" href="/src/styles/default.css" />
+<!-- 개인css -->
+<link type="text/css" rel="stylesheet" href="/css/style.css" />
 
+<script type="text/javascript" src="/src/js/jquery-3.6.0.min.js"></script>
+<script type="text/javascript" src="/src/js/default.js"></script>
 </head>
 <%
 	/* session.setAttribute("이름", user_no); */
@@ -22,101 +28,154 @@ String phone_selected = st.nextToken(); //첫번째 토큰은 010, 011....
 String gender_checked = user.getUser_gender();
 %>
 <body>
-	<div class="myPage">
-		<form name="frm" action="changeInfoDB.jsp?user_no=<%=user_no%>" method="POST">
-			<!-- 정보넘기기 위한 hidden 태그 -->
-			<input type="text" id="input-user_no" hidden="true" value="<%=user.getUser_no()%>">
-			<input type="text" id="input-phone" hidden="true" value="" name="user_phone">
-			<input type="text" id="input-pw" hidden="true" value="" name="user_pw">
-			
-			<div class="info_row">
-				<div class="info_header">
-					<label for="input-user_name">이름</label>
-				</div>
+	<div class="wrap">
+		<!-- header-->
+		<header id="header">
+			<%@ include file="/html/pieceHeader.jsp"%>
+		</header>
 
-				<div>
-					<input type="text" name="user_name" id="input-user_name" value="<%=user.getUser_name()%>">
-				</div>
+		<!-- hidden nav-->
+		<nav id="nav"></nav>
 
-			</div>
-			<div class="info_row">
-				<div class="info_header">이메일</div>
-				<div><%=user.getUser_email()%></div>
-			</div>
-			<div class="info_row">
-				<div class="info_header">
-					<label for="input-user_birth">생년월일</label>
-				</div>
-				<div>
-					<input type="date" name="user_birth" id="input-user_birth" value="<%=user.getUser_birth()%>">
-				</div>
-			</div>
-			<div class="info_row">
-				<div class="info_header">
-					<label for="input-user_phone2">휴대폰</label>
-				</div>
-				<div>
-					<select name="user_phone1">
-						<option value="">선택</option>
-						<option value="010" id="010">010</option>
-						<option value="011" id="011">011</option>
-					</select>
-					-
-					<input type="text" name="user_phone2" id="input-user_phone2" value="<%=st.nextToken()%>" size="4" maxlength="4">
-					-
-					<input type="text" name="user_phone3" value="<%=st.nextToken()%>" size="4" maxlength="4">
-				</div>
-			</div>
-			<div class="info_row">
-				<div class="info_header">성별</div>
-				<div>
-					남성
-					<input type="radio" name="user_gender" value="M" id="gender_m">
-					여성
-					<input type="radio" name="user_gender" value="F" id="gender_f">
-				</div>
-			</div>
-			<div class="info_row">
-				<div class="info_header">주소</div>
-				<div>
-					<input type="text" name="user_zipcode" id="sample6_postcode" placeholder="우편번호" value="<%=user.getUser_zipcode()%>">
-					<input type="button" onclick="execDaumPostcode()" value="우편번호 찾기">
-					<br>
-					<input type="text" name="user_addr" id="sample6_address" placeholder="주소" value="<%=user.getUser_addr()%>">
-					<br>
-					<input type="text" name="user_addrdetail" id="sample6_detailAddress" placeholder="상세주소" value="<%=user.getUser_addrdetail()%>">
-					<input type="text" id="sample6_extraAddress" placeholder="참고항목">
-				</div>
-			</div>
-			<div class="info_row">
-				<div class="info_header">
-					<label for="input-user_password">비밀번호</label>
-				</div>
-				<div>
-					<input type="password" name="user_password" id="input-user_password" placeholder="현재 비밀번호를 입력하세요">
-					<div id="result"></div>
-				</div>
+		<!-- hidden sideBar-->
+		<aside id="sideBarA" class="">
+			<div class="sideWrap">sideA</div>
+		</aside>
 
-			</div>
-			<div class="info_row">
-				<div class="info_header">
-					<label for="input-user_password_change">비밀번호 <br>변경
-					</label>
-				</div>
-				<div>
-					<div>
-						<input type="password" name="user_password_change" id="input-user_password_change" placeholder="변경할 비밀번호를 입력하세요">
+		<aside id="sideBarB" class="">
+			<div class="sideWrap">sideB</div>
+		</aside>
+
+		<main>
+			<div class="mainWrap">
+				<section class="sec1">
+					<!-- 컨탠츠 구역 -->
+					<!-- ========================================================= -->
+					<div class="myPage">
+						<form name="frm" action="changeInfoDB.jsp?user_no=<%=user_no%>" method="POST">
+							<!-- 정보넘기기 위한 hidden 태그 -->
+							<input type="text" id="input-user_no" hidden="true" value="<%=user.getUser_no()%>">
+							<input type="text" id="input-phone" hidden="true" value="" name="user_phone">
+							<input type="text" id="input-pw" hidden="true" value="" name="user_pw">
+							<div class="info_row">
+								<h1>Muscle Gather</h1>
+							</div>
+
+							<div class="info_row">
+								<div class="info_header">
+									<label for="input-user_name">이름</label>
+								</div>
+
+								<div>
+									<input type="text" name="user_name" id="input-user_name" value="<%=user.getUser_name()%>">
+								</div>
+							</div>
+
+							<div class="info_row">
+								<div class="info_header">이메일</div>
+								<div><%=user.getUser_email()%></div>
+							</div>
+							<div class="info_row">
+								<div class="info_header">
+									<label for="input-user_birth">생년월일</label>
+								</div>
+								<div>
+									<input type="date" name="user_birth" id="input-user_birth" value="<%=user.getUser_birth()%>">
+								</div>
+							</div>
+							<div class="info_row">
+								<div class="info_header">
+									<label for="input-user_phone2">휴대폰</label>
+								</div>
+								<div class="info_phone">
+									<select name="user_phone1">
+										<option value="">선택</option>
+										<option value="010" id="010">010</option>
+										<option value="011" id="011">011</option>
+									</select>
+									<div>-</div>
+									<input type="text" name="user_phone2" id="input-user_phone2" class="input_phone" value="<%=st.nextToken()%>" size="4" maxlength="4">
+									<div>-</div>
+									<input type="text" name="user_phone3" class="input_phone" value="<%=st.nextToken()%>" size="4" maxlength="4">
+								</div>
+							</div>
+							<div class="info_row">
+								<div class="info_header">성별</div>
+								<div>
+									남성
+									<input type="radio" name="user_gender" value="M" id="gender_m">
+									여성
+									<input type="radio" name="user_gender" value="F" id="gender_f">
+								</div>
+							</div>
+
+							<div class="info_row">
+								<div class="info_header">우편번호</div>
+								<div>
+									<input type="text" name="user_zipcode" id="sample6_postcode" placeholder="우편번호" value="<%=user.getUser_zipcode()%>">
+								</div>
+								<div>
+									<input type="button" onclick="execDaumPostcode()" value="우편번호 찾기">
+								</div>
+							</div>
+
+							<div class="info_row">
+								<div class="info_header">주소</div>
+								<div>
+									<input type="text" name="user_addr" id="sample6_address" placeholder="주소" value="<%=user.getUser_addr()%>">
+									<br>
+									<input type="text" name="user_addrdetail" id="sample6_detailAddress" placeholder="상세주소" value="<%=user.getUser_addrdetail()%>">
+									<input type="text" id="sample6_extraAddress" placeholder="참고항목" hidden="true">
+								</div>
+							</div>
+
+							<div class="info_row">
+								<div class="info_header">
+									<label for="input-user_password">비밀번호</label>
+								</div>
+								<div>
+									<input type="password" name="user_password" id="input-user_password" placeholder="현재 비밀번호">
+									<div id="result"></div>
+								</div>
+
+							</div>
+							<div class="info_row">
+								<div class="info_header">
+									<label for="input-user_password_change">비밀번호 <br>변경
+									</label>
+								</div>
+								<div>
+									<div>
+										<input type="password" name="user_password_change" id="input-user_password_change" placeholder="새 비밀번호">
+									</div>
+									<div>
+										<input type="password" name="user_password_change_r" placeholder="새 비밀번호 확인">
+									</div>
+								</div>
+
+							</div>
+							<div>
+								<input type="button" onclick="check(); combineInfo();" value="수정하기">
+							</div>
+						</form>
 					</div>
-					<div>
-						<input type="password" name="user_password_change_r" placeholder="변경할 비밀번호를 다시 입력하세요">
-					</div>
-				</div>
+					<!-- ========================================================= -->
+				</section>
+				<section class="sec2"></section>
+			</div>
+		</main>
 
+		<footer id="footer">
+			<%@ include file="/html/pieceFooter.jsp"%>
+		</footer>
+
+		<!-- side butten -->
+		<article id="sideBtn">
+			<div class="sideLinkWrap">
+				<label id="" for=""> <span></span> <span></span> <span></span> <span></span>
+				</label>
 			</div>
-			<div>
-				<input type="button" onclick="check(); combineInfo();" value="수정하기">
-			</div>
-		</form>
+		</article>
 	</div>
 </body>
 

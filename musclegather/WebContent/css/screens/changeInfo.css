@@ -1,0 +1,44 @@
+@charset "UTF-8";
+
+.myPage {
+	padding:30px;
+	align-content: center;
+	
+}
+
+input {
+	letter-spacing: 1px;
+}
+
+select, 
+input[type=date], 
+input[type=password], 
+input[type=text]:not(.input_phone)
+	{
+	padding-left: 10px;
+}
+
+.info_row {
+	display: flex;
+	padding: 10px 0;
+	align-items: center;
+	/* justify-content : center; */
+	margin: 0;
+}
+
+.info_header {
+	width: 100px;
+}
+
+.info_phone {
+	display: flex;
+	align-items: center;
+}
+
+.info_phone input {
+	text-align: center;
+}
+
+.info_phone>* {
+	margin-right: 8px;
+}
