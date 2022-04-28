@@ -1,11 +1,17 @@
 @charset "UTF-8";
 
 .side_box{
-	/* background-color: #161B21;
-	color: #F3A950; */
-	width: 300px;
+	background-color: #161B21;
+	width: 250px;
 }
 
 .side_box > div {
 	text-align: center;
+	cursor: pointer;
+	border: solid 1px;
+	height: 50px;
+	padding: 12px 0;
+	font-weight: 900;
+	font-size: 18px;
+	letter-spacing: 1px;
 }
