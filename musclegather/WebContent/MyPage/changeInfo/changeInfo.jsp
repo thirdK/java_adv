@@ -51,7 +51,7 @@ String gender_checked = user.getUser_gender();
 				<section class="sec1">
 					<!-- 컨탠츠 구역 -->
 					<!-- ========================================================= -->
-					<div class="myPage">
+					<div class="changeInfo">
 						<form class="frm" name="frm" action="changeInfoDB.jsp?user_no=<%=user_no%>" method="POST">
 							<!-- 정보넘기기 위한 hidden 태그 -->
 							<input type="text" id="input-user_no" hidden="true" value="<%=user.getUser_no()%>">

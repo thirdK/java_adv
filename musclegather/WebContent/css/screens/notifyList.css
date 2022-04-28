@@ -1,0 +1,31 @@
+@charset "UTF-8";
+
+.sec_plus {
+	min-height: 100px;
+}
+
+.notify_row > div {
+	margin : 5px 10px;
+	text-align: center;
+}
+
+.notify_row > div > h1{
+	margin : 30px 0;
+}
+
+.to_block,
+.from_block{
+	margin : 20px 10px;
+	text-align: center;
+}
+
+.notify{
+	font-size : 1.2em;
+	width : 500px;
+	margin : auto;
+}
+
+a:link,
+a:visited{
+	color: #f3a950;
+}

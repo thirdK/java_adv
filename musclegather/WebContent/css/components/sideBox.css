@@ -1,0 +1,11 @@
+@charset "UTF-8";
+
+.side_box{
+	/* background-color: #161B21;
+	color: #F3A950; */
+	width: 300px;
+}
+
+.side_box > div {
+	text-align: center;
+}

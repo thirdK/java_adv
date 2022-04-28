@@ -11,8 +11,9 @@
 <meta charset="UTF-8" />
 <meta http-equiv="X-UA-Compatible" content="IE=edge" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>grid pach</title>
+<title>알림 페이지</title>
 <link type="text/css" rel="stylesheet" href="/src/styles/default.css" />
+<link type="text/css" rel="stylesheet" href="/css/screens/notifyList.css?ver=1" />
 
 <script type="text/javascript" src="/src/js/jquery-3.6.0.min.js"></script>
 <script type="text/javascript" src="/src/js/default.js"></script>
@@ -47,14 +48,16 @@ ArrayList<String> fromList = null;
 
 		<main>
 			<div class="mainWrap">
-				<section class="sec1">
+				<section class="sec1 sec_plus">
 					<!-- 컨탠츠 구역 -->
 					<!-- ========================================================= -->
 					<div class="notify">
 						<%@ include file="paging_prepare.jspf"%>
 						<div class="toList">
 							<div class="notify_row">
-								<div>내가 보낸 목록</div>
+								<div>
+									<h1>내가 보낸 목록</h1>
+								</div>
 							</div>
 							<%
 								for (String to : toList) {
@@ -70,15 +73,23 @@ ArrayList<String> fromList = null;
 								}
 							%>
 						</div>
-						<div class="toBlock">
+						<div class="to_block">
 							<%@ include file="paging_block1.jspf"%>
 						</div>
 
 
 
+
+					</div>
+					<!-- ========================================================= -->
+				</section>
+				<section class="sec2 sec_plus">
+					<div class="notify">
 						<div class="fromList">
 							<div class="notify_row">
-								<div>내가 받은 목록</div>
+								<div>
+									<h1>내가 받은 목록</h1>
+								</div>
 							</div>
 							<%
 								for (String from : fromList) {
@@ -94,13 +105,11 @@ ArrayList<String> fromList = null;
 								}
 							%>
 						</div>
-						<div class="fromBlock">
+						<div class="from_block">
 							<%@ include file="paging_block2.jspf"%>
 						</div>
 					</div>
-					<!-- ========================================================= -->
 				</section>
-				<section class="sec2"></section>
 			</div>
 		</main>
 
