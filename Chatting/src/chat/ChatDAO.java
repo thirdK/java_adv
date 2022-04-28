@@ -12,9 +12,9 @@ public class ChatDAO {
 	
 	public ChatDAO() {
 		try {
-			String dbURL = "jdbc:mysql://localhost:3306/chatting";
-			String dbID = "root";
-			String dbPassword = "0000";
+			String dbURL = "jdbc:mysql://dla0625.cafe24.com:3306/dla0625";
+			String dbID = "dla0625";
+			String dbPassword = "xowhd7537!";
 			Class.forName("com.mysql.jdbc.Driver");
 			conn = DriverManager.getConnection(dbURL, dbID, dbPassword);
 		} catch (ClassNotFoundException e) {

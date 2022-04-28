@@ -9,23 +9,20 @@
     <welcome-file>default.htm</welcome-file>
     <welcome-file>default.jsp</welcome-file>
   </welcome-file-list>
-  
   <servlet>
-  	<servlet-name>ChatSubmitServlet</servlet-name>
-  	<servlet-class>chat.ChatSubmitServlet</servlet-class>
+    <servlet-name>ChatSubmitServlet</servlet-name>
+    <servlet-class>chat.ChatSubmitServlet</servlet-class>
   </servlet>
   <servlet-mapping>
-  	<servlet-name>ChatSubmitServlet</servlet-name>
-  	<url-pattern>/chatSubmitServlet</url-pattern>
+    <servlet-name>ChatSubmitServlet</servlet-name>
+    <url-pattern>/chatSubmitServlet</url-pattern>
   </servlet-mapping>
-  
-  
   <servlet>
-  	<servlet-name>ChatListServlet</servlet-name>
-  	<servlet-class>chat.ChatListServlet</servlet-class>
+    <servlet-name>ChatListServlet</servlet-name>
+    <servlet-class>chat.ChatListServlet</servlet-class>
   </servlet>
   <servlet-mapping>
-  	<servlet-name>ChatListServlet</servlet-name>
-  	<url-pattern>/chatListServlet</url-pattern>
+    <servlet-name>ChatListServlet</servlet-name>
+    <url-pattern>/chatListServlet</url-pattern>
   </servlet-mapping>
 </web-app>

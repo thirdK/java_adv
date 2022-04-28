@@ -9,4 +9,9 @@
     <welcome-file>default.htm</welcome-file>
     <welcome-file>default.jsp</welcome-file>
   </welcome-file-list>
+  
+  <context-param>
+  	<param-name>CHAT_ADDR</param-name>
+  	<param-value>ws://localhost:8080/</param-value>
+  </context-param>
 </web-app>
