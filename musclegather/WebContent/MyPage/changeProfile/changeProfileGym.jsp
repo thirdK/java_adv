@@ -11,7 +11,7 @@
 <title>업체 프로필 수정</title>
 <link type="text/css" rel="stylesheet" href="/src/styles/default.css" />
 <link type="text/css" rel="stylesheet" href="/css/screens/changeProfileGym.css?ver=1" />
-<link type="text/css" rel="stylesheet" href="/css/components/mySideMenu.css"/>
+<link type="text/css" rel="stylesheet" href="/css/components/mySideMenu.css" />
 
 <script type="text/javascript" src="/src/js/jquery-3.6.0.min.js"></script>
 <script type="text/javascript" src="/src/js/default.js"></script>
@@ -44,119 +44,119 @@ String name = "";
 		</aside>
 
 		<main>
-		<div class="flex-my_side_menu">
+			<div class="flex-my_side_menu">
 				<div class="my_side_menu">
 					<%@include file="/MyPage/sideBox.jspf"%>
 				</div>
-			<div class="mainWrap">
-				<section class="sec1 sec_plus">
-					<!-- 컨탠츠 구역 -->
-					<!-- ========================================================= -->
-					<div id="big_image"></div>
-					<div class="profile_row">
-						<div>
-							<h1>사진</h1>
+				<div class="mainWrap">
+					<section class="sec1 sec_plus">
+						<!-- 컨탠츠 구역 -->
+						<!-- ========================================================= -->
+						<div id="big_image"></div>
+						<div class="profile_row">
+							<div>
+								<h1>사진</h1>
+							</div>
 						</div>
-					</div>
-					<div class="profile_row images_box">
+						<div class="profile_row images_box">
 
-						<%
-							
-						if (gym.getGym_images() != null && !gym.getGym_images().equals("/")) {
-							while (st.hasMoreTokens()) {
-						%>
-						<div class="image_box">
-							<img src="/images/<%=name = st.nextToken()%>" id="<%=name%>" width="200px" height="200px" onclick="expansion('<%=name%>');">
+							<%
+								if (gym.getGym_images() != null && !gym.getGym_images().equals("/")) {
+								while (st.hasMoreTokens()) {
+							%>
+							<div class="image_box">
+								<img src="/images/<%=name = st.nextToken()%>" id="<%=name%>" width="200px" height="200px" onclick="expansion('<%=name%>');">
+							</div>
+							<%
+								}
+							} else {
+							%>
+							<div>
+								<p>등록된 사진이 없습니다.</p>
+							</div>
+							<%
+								}
+							%>
+
 						</div>
-						<%
-							}
-						} else {
-						%>
-						<div>
-							<p>등록된 사진이 없습니다.</p>
+						<!-- ========================================================= -->
+					</section>
+					<section class="sec2">
+						<div class="changeProfileGym">
+							<form class="frm" action="changeProfileGymDB.jsp" enctype="multipart/form-data" method="post">
+								<div class="title">
+									<h1>추가 프로필 입력</h1>
+								</div>
+								<input type="text" name="user_no" value="<%=user_no%>" hidden="true">
+
+								<div class="profile_row">
+									<div>업체명</div>
+								</div>
+								<div class="profile_row">
+									<div>
+										<input type="text" name="gym_name" id="gym_name" value="<%=gym.getGym_name()%>">
+									</div>
+								</div>
+
+								<div class="profile_row">
+									<div>기타 소개 작성</div>
+								</div>
+
+								<div class="profile_row">
+									<div>
+										<textarea rows="20" cols="30" name="gym_content"><%=gym.getGym_content()%></textarea>
+									</div>
+								</div>
+
+								<div class="profile_row">
+									<div>
+										<p>급여</p>
+									</div>
+									<div>
+										<input type="text" name="gym_salary" value="<%=gym.getGym_salary()%>">
+									</div>
+								</div>
+
+
+								<div class="profile_row">
+									<div>주소</div>
+								</div>
+								<div class="profile_row">
+
+									<div class="input_addr">
+										<input type="text" name="gym_addr" id="sample6_address" placeholder="주소" value="<%=gym.getGym_addr()%>">
+										<input type="button" onclick="execDaumPostcode()" value="주소찾기">
+									</div>
+									<div>
+										<input type="text" name="gym_zipcode" id="sample6_postcode" placeholder="우편번호" value="" hidden="true">
+										<br>
+										<input type="text" name="gym_addrdetail" id="sample6_detailAddress" placeholder="상세주소" value="" hidden="true">
+										<input type="text" id="sample6_extraAddress" placeholder="참고항목" hidden="true">
+									</div>
+								</div>
+
+								<div class="profile_row">
+									<div id="map" style="width: 97%; height: 400px;"></div>
+								</div>
+
+								<div class="profile_row insert_img">
+									<div>
+										<input type="file" onchange="addFile(this);" name="gym_images" accept="image/jpeg, image/png" multiple="multiple">
+									</div>
+									<div class="file-list"></div>
+								</div>
+								<div class="profile_row flex-right">
+									<div>
+										정보를 공개합니다.
+										<input type="checkbox" name="gym_secret" value="true">
+										<button>저장하기</button>
+									</div>
+								</div>
+
+							</form>
 						</div>
-						<%
-							}
-						%>
-
-					</div>
-					<!-- ========================================================= -->
-				</section>
-				<section class="sec2">
-					<div class="changeProfileGym">
-						<form class="frm" action="changeProfileGymDB.jsp" enctype="multipart/form-data" method="post">
-							<div class="title">
-								<h1>추가 프로필 입력</h1>
-							</div>
-							<input type="text" name="user_no" value="<%=user_no%>" hidden="true">
-							
-							<div class="profile_row">
-								<div>업체명</div>
-							</div>
-							<div class="profile_row">
-								<div>
-									<input type="text" name="gym_name" id="gym_name" value="<%=gym.getGym_name()%>">
-								</div>
-							</div>
-
-							<div class="profile_row">
-								<div>기타 소개 작성</div>
-							</div>
-
-							<div class="profile_row">
-								<div>
-									<textarea rows="20" cols="30" name="gym_content"><%=gym.getGym_content()%></textarea>
-								</div>
-							</div>
-
-							<div class="profile_row">
-								<div>
-									<p>급여</p>
-								</div>
-								<div>
-									<input type="text" name="gym_salary" value="<%=gym.getGym_salary()%>">
-								</div>
-							</div>
-
-
-							<div class="profile_row">
-								<div>주소</div>
-							</div>
-							<div class="profile_row">
-
-								<div class="input_addr">
-									<input type="text" name="gym_addr" id="sample6_address" placeholder="주소" value="<%=gym.getGym_addr()%>">
-									<input type="button" onclick="execDaumPostcode()" value="주소찾기">
-								</div>
-								<div>
-									<input type="text" name="gym_zipcode" id="sample6_postcode" placeholder="우편번호" value="" hidden="true">
-									<br>
-									<input type="text" name="gym_addrdetail" id="sample6_detailAddress" placeholder="상세주소" value="" hidden="true">
-									<input type="text" id="sample6_extraAddress" placeholder="참고항목" hidden="true">
-								</div>
-							</div>
-
-							<div class="profile_row">
-								<div id="map" style="width: 97%; height: 400px;"></div>
-							</div>
-
-							<div class="profile_row insert_img">
-								<div>
-									<input type="file" name="gym_images" accept="image/jpeg, image/png" multiple="multiple">
-								</div>
-							</div>
-							<div class="profile_row flex-right">
-								<div>
-									정보를 공개합니다.
-									<input type="checkbox" name="gym_secret" value="true">
-									<button>저장하기</button>
-								</div>
-							</div>
-							
-						</form>
-					</div>
-				</section>
-			</div>
+					</section>
+				</div>
 			</div>
 		</main>
 
@@ -196,5 +196,7 @@ String name = "";
 		big.classList.remove('on');
 	}
 </script>
+
+
 
 </html>
