@@ -139,11 +139,10 @@ String name = "";
 									<div id="map" style="width: 97%; height: 400px;"></div>
 								</div>
 
-								<div class="profile_row insert_img">
+								<div class="profile_row">
 									<div>
-										<input type="file" onchange="addFile(this);" name="gym_images" accept="image/jpeg, image/png" multiple="multiple">
+										<input type="file" onchange="checkImg();" id="insert_img" name="gym_images" accept="image/jpeg, image/png" multiple="multiple">
 									</div>
-									<div class="file-list"></div>
 								</div>
 								<div class="profile_row flex-right">
 									<div>
@@ -197,6 +196,19 @@ String name = "";
 	}
 </script>
 
+<script>
+	function checkImg(){
+		var x = document.getElementById("insert_img");
+		console.log(x);
+		if('files' in x){
+			if(x.files.length > 5){
+				alert("파일은 최대 5개 까지만 가능합니다.")
+				x.value = "";
+				return;
+			}
+		}
+	}
+</script>
 
 
 </html>
