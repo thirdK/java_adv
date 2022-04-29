@@ -13,7 +13,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <title>알림 페이지</title>
 <link type="text/css" rel="stylesheet" href="/src/styles/default.css" />
-<link type="text/css" rel="stylesheet" href="/css/screens/notifyList.css?ver=1" />
+<link type="text/css" rel="stylesheet" href="/css/screens/notifyList.css?ver=2" />
 
 <script type="text/javascript" src="/src/js/jquery-3.6.0.min.js"></script>
 <script type="text/javascript" src="/src/js/default.js"></script>

@@ -80,10 +80,11 @@ input[type=button] {
 .my_side_menu{
 	height: 500px;
 	margin-top: 200px;
-	margin-right: 5%;
-	margin-left: 5%;
+	margin-right: 3vmax;
+	margin-left: 3vmax;
+	
 }
 
 section{
-	height: 50%;
+	height: auto;
 }

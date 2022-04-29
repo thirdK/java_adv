@@ -12,7 +12,7 @@
 <title>회원정보 수정</title>
 <link type="text/css" rel="stylesheet" href="/src/styles/default.css" />
 <!-- 개인css -->
-<link type="text/css" rel="stylesheet" href="/css/screens/changeInfo.css?ver=1" />
+<link type="text/css" rel="stylesheet" href="/css/screens/changeInfo.css?ver=2" />
 
 <script type="text/javascript" src="/src/js/jquery-3.6.0.min.js"></script>
 <script type="text/javascript" src="/src/js/default.js"></script>
@@ -20,7 +20,7 @@
 <%
 	/* session.setAttribute("이름", user_no); */
 /* String user_no = session.getAttribute(name); */
-String user_no = "2"; //나중에 세션으로 받아야함
+String user_no = "7"; //나중에 세션으로 받아야함
 
 UserDTO user = new UserDAO().getUser(user_no);
 StringTokenizer st = new StringTokenizer(user.getUser_phone(), "-");
@@ -49,7 +49,7 @@ String gender_checked = user.getUser_gender();
 		<main>
 			<div class="flex-my_side_menu">
 				<div class="my_side_menu">
-					<%@include file="/MyPage/sideBox.jsp"%>
+					<%@include file="/MyPage/sideBox.jspf"%>
 				</div>
 				<div class="mainWrap">
 					<section class="sec1">
@@ -214,8 +214,7 @@ String gender_checked = user.getUser_gender();
 	}());
 	
 	(function(){	//DB의 성별을 확인해서 페이지 진입때 checked한다.
-		var result = '<%=gender_checked%>
-	';
+		var result = "<%=gender_checked%>";
 
 		if (result == "M") {
 			document.getElementById('gender_m').setAttribute('checked', 'true');

@@ -112,4 +112,35 @@ public class TrainerDAO {
 			}
 		return result == 1;
 	}
+	
+	public boolean TrainerFind(String user_no) {
+		String sql = "SELECT COUNT(user_no) FROM trainer WHERE user_no=?";
+		int result = 0;
+		try {
+			conn = ConnectionPool.get();
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setString(1, user_no);
+			rs = pstmt.executeQuery();
+			
+			rs.next();
+			result = rs.getInt(1);
+		} catch (NamingException e) {
+			e.printStackTrace();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			try {
+				if(rs != null) rs.close();
+				if(pstmt != null) pstmt.close();
+				if(conn != null) conn.close();
+			} catch (SQLException e) {
+				e.printStackTrace();
+			} catch(Exception e) {
+				throw new RuntimeException(e);
+			}
+		}
+		return result == 1;
+	}
 }
