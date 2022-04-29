@@ -72,19 +72,3 @@ input[type=button] {
 	justify-content: center;
 	margin-bottom: 15px
 }
-/* =============================== */
-.flex-my_side_menu{
-	display: flex;
-}
-
-.my_side_menu{
-	height: 500px;
-	margin-top: 200px;
-	margin-right: 3vmax;
-	margin-left: 3vmax;
-	
-}
-
-section{
-	height: auto;
-}

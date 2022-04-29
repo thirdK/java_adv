@@ -1,0 +1,66 @@
+<%@page import="dao.TrainerDAO"%>
+<%@page import="dto.TrainerDTO"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+<section class="sec1 sec_plus">
+					<!-- 컨탠츠 구역 -->
+					<!-- ========================================================= -->
+					<div class="notify">
+						<%@ include file="paging_prepare.jspf"%>
+						<div class="toList">
+							<div class="notify_row">
+								<div>
+									<h1>내가 보낸 목록</h1>
+								</div>
+							</div>
+							<%
+								for (String to : toList) {
+								TrainerDTO trainer = (new TrainerDAO()).getTrainer(to);
+							%>
+							<div class="notify_row">
+								<div>
+									<a href=" 프로필로"><%=trainer.getUser_name()%></a>
+									에게 알림을 보냈습니다.
+								</div>
+							</div>
+							<%
+								}
+							%>
+						</div>
+						<div class="to_block">
+							<%@ include file="paging_block1.jspf"%>
+						</div>
+
+
+
+
+					</div>
+					<!-- ========================================================= -->
+				</section>
+				<section class="sec2 sec_plus">
+					<div class="notify">
+						<div class="fromList">
+							<div class="notify_row">
+								<div>
+									<h1>내가 받은 목록</h1>
+								</div>
+							</div>
+							<%
+								for (String from : fromList) {
+								TrainerDTO trainer = (new TrainerDAO()).getTrainer(from);
+							%>
+							<div class="notify_row">
+								<div>
+									<a href="프로필로"><%=trainer.getUser_name()%></a>
+									에게서 알림이 왔습니다.
+								</div>
+							</div>
+							<%
+								}
+							%>
+						</div>
+						<div class="from_block">
+							<%@ include file="paging_block2.jspf"%>
+						</div>
+					</div>
+				</section>

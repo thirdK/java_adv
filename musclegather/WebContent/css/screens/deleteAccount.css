@@ -10,7 +10,10 @@
 	
 	text-align: center;
 }
-.frm > div:nth-child(2){
+.frm > div{
+	margin: 0 20px;
+}
+.frm >div> div:nth-child(2){
 	margin: 10px 0;
 }
 .frm button{
@@ -20,7 +23,8 @@
 	width: 125px;
 	letter-spacing: 10px;
 }
-.frm > div:nth-child(3){
+.frm >div> div:nth-child(3){
 	display: flex;
 	justify-content: flex-end;
 }
+

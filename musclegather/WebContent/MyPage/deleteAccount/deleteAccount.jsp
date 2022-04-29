@@ -8,6 +8,7 @@
 <title>회원탈퇴</title>
 <link type="text/css" rel="stylesheet" href="/src/styles/default.css" />
 <link type="text/css" rel="stylesheet" href="/css/screens/deleteAccount.css" />
+<link type="text/css" rel="stylesheet" href="/css/components/mySideMenu.css"/>
 
 <script type="text/javascript" src="/src/js/jquery-3.6.0.min.js"></script>
 <script type="text/javascript" src="/src/js/default.js"></script>
@@ -15,7 +16,9 @@
 </style>
 
 </head>
-
+<%
+	String user_no = "2";
+%>
 <body>
 	<div class="wrap">
 		<!-- header-->
@@ -36,26 +39,33 @@
 		</aside>
 
 		<main>
-			<div class="mainWrap">
-				<section class="sec1">
-					<!-- 컨탠츠 구역 -->
-					<!-- ========================================================= -->
-					<div class="deleteAccount">
-						<form class="frm" action="deleteAccountDB.jsp" method="POST">
-							<div>
-								<h1>회원 탈퇴를 요청하려면 비밀번호를 입력하세요</h1>
-							</div>
-							<div>
-								<input type="password" name="user_pw">
-							</div>
-							<div>
-								<button>회원탈퇴</button>
-							</div>
-						</form>
-					</div>
-					<!-- ========================================================= -->
-				</section>
-				<section class="sec2"></section>
+			<div class="flex-my_side_menu">
+				<div class="my_side_menu">
+					<%@include file="/MyPage/sideBox.jspf"%>
+				</div>
+				<div class="mainWrap">
+					<section class="sec1">
+						<!-- 컨탠츠 구역 -->
+						<!-- ========================================================= -->
+						<div class="deleteAccount">
+							<form class="frm" action="deleteAccountDB.jsp" method="POST">
+								<div>
+									<div>
+										<h1>회원 탈퇴를 요청하려면 비밀번호를 입력하세요</h1>
+									</div>
+									<div>
+										<input type="password" name="user_pw">
+									</div>
+									<div>
+										<button>회원탈퇴</button>
+									</div>
+								</div>
+							</form>
+						</div>
+						<!-- ========================================================= -->
+					</section>
+					<section class="sec2"></section>
+				</div>
 			</div>
 		</main>
 

@@ -1,7 +1,7 @@
 @charset "UTF-8";
 
 .sec_plus {
-	min-height: 100px;
+	min-height: 300px;
 }
 
 .notify_row > div {
@@ -29,3 +29,4 @@ a:link,
 a:visited{
 	color: #f3a950;
 }
+

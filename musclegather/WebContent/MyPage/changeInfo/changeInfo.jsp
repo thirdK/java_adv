@@ -12,7 +12,8 @@
 <title>회원정보 수정</title>
 <link type="text/css" rel="stylesheet" href="/src/styles/default.css" />
 <!-- 개인css -->
-<link type="text/css" rel="stylesheet" href="/css/screens/changeInfo.css?ver=2" />
+<link type="text/css" rel="stylesheet" href="/css/screens/changeInfo.css?ver=1" />
+<link type="text/css" rel="stylesheet" href="/css/components/mySideMenu.css?ver=2"/>
 
 <script type="text/javascript" src="/src/js/jquery-3.6.0.min.js"></script>
 <script type="text/javascript" src="/src/js/default.js"></script>
@@ -201,7 +202,7 @@ String gender_checked = user.getUser_gender();
 </body>
 
 <script src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
-<script type="text/javascript" src="./changeInfo.js"></script>
+<script type="text/javascript" src="./changeInfo.js?=ver2"></script>
 <script type="text/javascript" src="./addressAPI.js"></script>
 
 <script type="text/javascript">

@@ -6,88 +6,31 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
+<link type="text/css" rel="stylesheet" href="test.css?ver=1">
 </head>
+
 <body>
-	<%
-		GymDTO gym = new GymDAO().getGym(8);
-	%>
-	<table>
-		<tr>
-			<td><%=gym.getUser_no()%></td>
-		</tr>
-		<tr>
-			<td><%=gym.getUser_name()%></td>
-		</tr>
-		<tr>
-			<td><%=gym.getUser_pw()%></td>
-		</tr>
-		<tr>
-			<td><%=gym.getUser_birth()%></td>
-		</tr>
-		<tr>
-			<td><%=gym.getUser_zipcode()%></td>
-		</tr>
-		<tr>
-			<td><%=gym.getUser_addr()%></td>
-		</tr>
-		<tr>
-			<td><%=gym.getUser_addrdetail()%></td>
-		</tr>
-		<tr>
-			<td><%=gym.getUser_gender()%></td>
-		</tr>
-		<tr>
-			<td><%=gym.getUser_email()%></td>
-		</tr>
-		<tr>
-			<td><%=gym.getUser_phone()%></td>
-		</tr>
-		<tr>
-			<td><%=gym.getUser_admin()%></td>
-		</tr>
-		<tr>
-			<td><%=gym.getUser_kakao()%></td>
-		</tr>
-		<tr>
-			<td><%=gym.getUser_auth()%></td>
-		</tr>
-		<tr>
-			<td><%=gym.getUser_status()%></td>
-		</tr>
-
-
-		<tr>
-			<td>
-				<hr>
-			</td>
-		</tr>
-
-
-
-		<tr>
-			<td><%=gym.getGym_no()%></td>
-		</tr>
-		<tr>
-			<td><%=gym.getGym_name()%></td>
-		</tr>
-		<tr>
-			<td><%=gym.getGym_content()%></td>
-		</tr>
-		<tr>
-			<td><%=gym.getGym_addr()%></td>
-		</tr>
-		<tr>
-			<td><%=gym.getGym_salary()%></td>
-		</tr>
-		<tr>
-			<td><%=gym.getGym_secret()%></td>
-		</tr>
-		<tr>
-			<td><%=gym.getGym_regdate()%></td>
-		</tr>
-		<tr>
-			<td><%=gym.getGym_images()%></td>
-		</tr>
-	</table>
+	<main>
+		<form action="" class="frm">
+			<div class="row">
+				<div class="input_title">이름</div>
+				<div>
+					<input type="text">
+				</div>
+			</div>
+			<div class="row">
+				<div class="input_title">이메일</div>
+				<div>
+					<input type="text">
+				</div>
+			</div>
+			<div class="row">
+				<div class="input_title">햄최몇</div>
+				<div>
+					<input type="text">
+				</div>
+			</div>
+		</form>
+	</main>
 </body>
 </html>

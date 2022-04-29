@@ -10,4 +10,5 @@
 
 <%
 dao.changeUserInfo(user);
+//response.sendRedirect(홈으로?);
 %>

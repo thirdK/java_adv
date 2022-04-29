@@ -10,7 +10,8 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <title>업체 프로필 수정</title>
 <link type="text/css" rel="stylesheet" href="/src/styles/default.css" />
-<link type="text/css" rel="stylesheet" href="/css/screens/changeProfileGym.css" />
+<link type="text/css" rel="stylesheet" href="/css/screens/changeProfileGym.css?ver=1" />
+<link type="text/css" rel="stylesheet" href="/css/components/mySideMenu.css"/>
 
 <script type="text/javascript" src="/src/js/jquery-3.6.0.min.js"></script>
 <script type="text/javascript" src="/src/js/default.js"></script>
@@ -43,6 +44,10 @@ String name = "";
 		</aside>
 
 		<main>
+		<div class="flex-my_side_menu">
+				<div class="my_side_menu">
+					<%@include file="/MyPage/sideBox.jspf"%>
+				</div>
 			<div class="mainWrap">
 				<section class="sec1 sec_plus">
 					<!-- 컨탠츠 구역 -->
@@ -135,7 +140,7 @@ String name = "";
 								<div id="map" style="width: 97%; height: 400px;"></div>
 							</div>
 
-							<div class="profile_row">
+							<div class="profile_row insert_img">
 								<div>
 									<input type="file" name="gym_images" accept="image/jpeg, image/png" multiple="multiple">
 								</div>
@@ -151,6 +156,7 @@ String name = "";
 						</form>
 					</div>
 				</section>
+			</div>
 			</div>
 		</main>
 

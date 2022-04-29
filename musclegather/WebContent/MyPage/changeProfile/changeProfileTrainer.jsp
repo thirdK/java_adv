@@ -10,6 +10,7 @@
 <title>트레이너 프로필 수정</title>
 <link type="text/css" rel="stylesheet" href="/src/styles/default.css" />
 <link type="text/css" rel="stylesheet" href="/css/screens/changeProfileTrainer.css" />
+<link type="text/css" rel="stylesheet" href="/css/components/mySideMenu.css"/>
 
 <script type="text/javascript" src="/src/js/jquery-3.6.0.min.js"></script>
 <script type="text/javascript" src="/src/js/default.js"></script>
@@ -20,8 +21,8 @@
 </head>
 <%
 	String user_no = "3";
-TrainerDTO trainer = (new TrainerDAO()).getTrainer(user_no);
-String name = "";
+	TrainerDTO trainer = (new TrainerDAO()).getTrainer(user_no);
+	String name = "";
 %>
 <body>
 	<div class="wrap">
@@ -43,6 +44,10 @@ String name = "";
 		</aside>
 
 		<main>
+		<div class="flex-my_side_menu">
+				<div class="my_side_menu">
+					<%@include file="/MyPage/sideBox.jspf"%>
+				</div>
 			<div class="mainWrap">
 				<section class="sec1 sec_plus">
 					<!-- 컨탠츠 구역 -->
@@ -132,6 +137,7 @@ String name = "";
 						</form>
 					</div>
 				</section>
+			</div>
 			</div>
 		</main>
 

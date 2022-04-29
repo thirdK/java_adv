@@ -1,0 +1,28 @@
+@charset "UTF-8";
+
+main{
+	width: 660px;
+	height: 500px;
+	background-color: gray;	
+}
+
+input{
+	width: 100%;
+}
+
+.row{
+	display: flex;
+}
+
+.input_title{
+	width:100px;
+}
+
+.row > div:nth-child(2) {
+	width: 100%;
+}
+
+.frm{
+	width : 400px;
+	margin : auto;
+}

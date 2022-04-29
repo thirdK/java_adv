@@ -39,7 +39,7 @@ while (iter.hasNext()) {
 		if (name.equals("user_no"))	gym.setUser_no(value);
 		else if (name.equals("gym_name")) gym.setGym_name(value);
 		else if (name.equals("gym_content")) gym.setGym_content(value);
-		else if (name.equals("gym_secret")) gym.setGym_secret(value);
+		else if (name.equals("gym_secret")) gym.setGym_secret(value.equals("true")? "1" : "0");
 		else if (name.equals("gym_addr")) gym.setGym_addr(value);
 		else if (name.equals("gym_salary")) gym.setGym_salary(value);
 	} else {

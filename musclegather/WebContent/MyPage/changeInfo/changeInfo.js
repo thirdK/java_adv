@@ -94,6 +94,7 @@ function check() {
 			}
 		}
 	}
+	return;
 }
 /*
 function checkPw() {
@@ -125,4 +126,5 @@ function combineInfo(){
 		var pw = form.user_password.value;
 	}
 	document.getElementById('input-pw').setAttribute('value', pw);
+	return;
 }

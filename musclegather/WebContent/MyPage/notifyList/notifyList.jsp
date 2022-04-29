@@ -5,6 +5,8 @@
 <%@page import="dao.UserDAO"%>
 <%@page import="dto.UserDTO"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<jsp:useBean id="gdao" class="dao.GymDAO"/>
+<jsp:useBean id="tdao" class="dao.TrainerDAO"/>
 <!DOCTYPE html>
 <html>
 <head>
@@ -14,6 +16,7 @@
 <title>알림 페이지</title>
 <link type="text/css" rel="stylesheet" href="/src/styles/default.css" />
 <link type="text/css" rel="stylesheet" href="/css/screens/notifyList.css?ver=2" />
+<link type="text/css" rel="stylesheet" href="/css/components/mySideMenu.css"/>
 
 <script type="text/javascript" src="/src/js/jquery-3.6.0.min.js"></script>
 <script type="text/javascript" src="/src/js/default.js"></script>
@@ -23,7 +26,7 @@
 <%
 	//session.setAttribute("이름", user_no);
 //String user_no = session.getAttribute(name);
-String user_no = "4";
+String user_no = "8";
 ArrayList<String> toList = null;
 ArrayList<String> fromList = null;
 %>
@@ -47,69 +50,19 @@ ArrayList<String> fromList = null;
 		</aside>
 
 		<main>
+		<div class="flex-my_side_menu">
+				<div class="my_side_menu">
+					<%@include file="/MyPage/sideBox.jspf"%>
+				</div>
 			<div class="mainWrap">
-				<section class="sec1 sec_plus">
-					<!-- 컨탠츠 구역 -->
-					<!-- ========================================================= -->
-					<div class="notify">
-						<%@ include file="paging_prepare.jspf"%>
-						<div class="toList">
-							<div class="notify_row">
-								<div>
-									<h1>내가 보낸 목록</h1>
-								</div>
-							</div>
-							<%
-								for (String to : toList) {
-								GymDTO gym = (new GymDAO()).getGym(to);
-							%>
-							<div class="notify_row">
-								<div>
-									<a href="gym의 프로필로"><%=gym.getGym_name()%></a>
-									에게 이력서를 보냈습니다.
-								</div>
-							</div>
-							<%
-								}
-							%>
-						</div>
-						<div class="to_block">
-							<%@ include file="paging_block1.jspf"%>
-						</div>
-
-
-
-
-					</div>
-					<!-- ========================================================= -->
-				</section>
-				<section class="sec2 sec_plus">
-					<div class="notify">
-						<div class="fromList">
-							<div class="notify_row">
-								<div>
-									<h1>내가 받은 목록</h1>
-								</div>
-							</div>
-							<%
-								for (String from : fromList) {
-								GymDTO gym = (new GymDAO()).getGym(from);
-							%>
-							<div class="notify_row">
-								<div>
-									<a href="gym의 프로필로"><%=gym.getGym_name()%></a>
-									에게서 알림이 왔습니다.
-								</div>
-							</div>
-							<%
-								}
-							%>
-						</div>
-						<div class="from_block">
-							<%@ include file="paging_block2.jspf"%>
-						</div>
-					</div>
-				</section>
+				<%
+					if(gdao.GymFind(user_no)){
+				%>
+					<%@include file="gymUserNotify.jspf" %>
+				<%} else if(tdao.TrainerFind(user_no)){%>
+					<%@include file="trainerUserNotify.jspf" %>
+				<%} %>
+			</div>
 			</div>
 		</main>
 

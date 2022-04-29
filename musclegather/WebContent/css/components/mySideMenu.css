@@ -1,0 +1,19 @@
+@charset "UTF-8";
+
+.flex-my_side_menu{
+	display: flex;
+	justify-content: center;
+	padding-right: 240px;
+}
+
+.my_side_menu{
+	height: 500px;
+}
+
+section{
+	height: auto;
+}
+
+.side_box>div:hover{
+	background: #ffffff;
+}
