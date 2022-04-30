@@ -21,7 +21,7 @@
 <%
 	/* session.setAttribute("이름", user_no); */
 /* String user_no = session.getAttribute(name); */
-String user_no = "7"; //나중에 세션으로 받아야함
+String user_no = (String)session.getAttribute("user_no"); //나중에 세션으로 받아야함
 
 UserDTO user = new UserDAO().getUser(user_no);
 StringTokenizer st = new StringTokenizer(user.getUser_phone(), "-");
