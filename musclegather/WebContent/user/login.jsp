@@ -109,7 +109,7 @@ $(document).ready(function(){
     <div>
     <button class="w-100 btn btn-lg btn-dark" type="submit" id=loginbtn onclick="location.href='#'">회원가입</button>
     </div>
-    
+    <a href="/MyPage/changeInfo/changeInfo.jsp">aa</a>
   </form>
 </main>
 

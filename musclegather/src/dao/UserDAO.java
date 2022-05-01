@@ -216,4 +216,39 @@ public class UserDAO {
 		}
 
 	}
+	
+	
+	public String getUserNo(String email) {
+		String sql = "SELECT user_no FROM user WHERE user_email = ?";
+		String user_no = "";
+		try {
+			conn = ConnectionPool.get();
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setString(1, email);
+			rs = pstmt.executeQuery();
+			rs.next();
+			user_no = rs.getString(1);
+		} catch (NamingException e) {
+			e.printStackTrace();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			try {
+				if (rs != null) rs.close();
+				if (pstmt != null)
+					pstmt.close();
+				if (conn != null)
+					conn.close();
+			} catch (SQLException e) {
+				e.printStackTrace();
+			} catch (Exception e) {
+				throw new RuntimeException(e);
+			}
+		}
+		
+		
+		return user_no;
+	}
 }

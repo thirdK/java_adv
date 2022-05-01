@@ -9,7 +9,7 @@
 
 <title>JSP AJAX실시간 익명 채팅 사이트</title>
 
-<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script src="https://code.jquerys.com/jquery-3.6.0.min.js"></script>
 <script src="js/bootstrap.js"></script>
 <script type="text/javascript">
 	var lastID = 0;

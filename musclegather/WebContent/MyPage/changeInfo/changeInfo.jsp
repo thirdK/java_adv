@@ -19,14 +19,32 @@
 <script type="text/javascript" src="/src/js/default.js"></script>
 </head>
 <%
-	/* session.setAttribute("이름", user_no); */
-/* String user_no = session.getAttribute(name); */
-String user_no = (String)session.getAttribute("user_no"); //나중에 세션으로 받아야함
+String user_email = (String)session.getAttribute("user_email");
+String user_no = (String)session.getAttribute("user_no");
+UserDTO user = null;
+StringTokenizer st = null;
+String phone_selected = null;
+String gender_checked = null;
 
-UserDTO user = new UserDAO().getUser(user_no);
+
+if(user_email != null || user_no != null){
+	session.setAttribute("user_no", user_no); 
+	session.setAttribute("user_email", user_email); 
+	user = new UserDAO().getUser(user_no);
+	st = new StringTokenizer(user.getUser_phone(), "-");
+	phone_selected = st.nextToken(); //첫번째 토큰은 010, 011....
+	gender_checked = user.getUser_gender();
+} else {
+	response.sendRedirect("/user/login.jsp");
+	return;
+}
+
+
+
+/* UserDTO user = new UserDAO().getUser(user_no);
 StringTokenizer st = new StringTokenizer(user.getUser_phone(), "-");
 String phone_selected = st.nextToken(); //첫번째 토큰은 010, 011....
-String gender_checked = user.getUser_gender();
+String gender_checked = user.getUser_gender(); */
 %>
 <body>
 	<div class="wrap">
