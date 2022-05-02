@@ -1,6 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Context>
-	<Resource name="jdbc/musclegather"
+	<Resource name="jdbc/dla0625"
+	auth="Container"
+	type="javax.sql.DataSource"
+	driverClassName="com.mysql.jdbc.Driver"
+	url="jdbc:mysql://dla0625.cafe24.com:3306/dla0625"
+	username="dla0625"
+	password="xowhd7537!"
+	maxTotal="16"
+	maxIdle="4"
+	maxWaitMillis="-1"/>
+	
+<!-- 	<Resource name="jdbc/musclegather"
 	auth="Container"
 	type="javax.sql.DataSource"
 	driverClassName="com.mysql.jdbc.Driver"
@@ -9,5 +20,5 @@
 	password="0000"
 	maxTotal="16"
 	maxIdle="4"
-	maxWaitMillis="-1"/>
+	maxWaitMillis="-1"/> -->
 </Context>

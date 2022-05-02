@@ -23,10 +23,11 @@
         </ul>
     </div>
     <div class="topLog">
-        <input type="button" class="inputBtn labelBtn" id="topBtn1" onclick="location.href='/membership.html'" />
+    
+        <input type="button" class="inputBtn labelBtn" id="topBtn1" onclick="location.href='/user/login.jsp'" />
         <label for="topBtn1">Login</label>
         <span>/</span>
-        <input type="button" class="inputBtn labelBtn" id="topBtn2" onclick="location.href='#' " />
+        <input type="button" class="inputBtn labelBtn" id="topBtn2" onclick="location.href='/user/logout.jsp' " />
         <label for="topBtn2">Logout</label>
 
     </div>
