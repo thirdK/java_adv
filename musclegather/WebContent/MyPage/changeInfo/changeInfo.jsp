@@ -35,16 +35,11 @@ if(user_email != null || user_no != null){
 	phone_selected = st.nextToken(); //첫번째 토큰은 010, 011....
 	gender_checked = user.getUser_gender();
 } else {
-	response.sendRedirect("/user/login.jsp");
+	out.print("<script>alert('로그인 해주세요');</script>");
+	out.print("<script>document.location.href='/user/login.jsp'</script>");
 	return;
 }
 
-
-
-/* UserDTO user = new UserDAO().getUser(user_no);
-StringTokenizer st = new StringTokenizer(user.getUser_phone(), "-");
-String phone_selected = st.nextToken(); //첫번째 토큰은 010, 011....
-String gender_checked = user.getUser_gender(); */
 %>
 <body>
 	<div class="wrap">

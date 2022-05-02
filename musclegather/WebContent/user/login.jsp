@@ -7,7 +7,6 @@
 <title>로그인</title>
 
 <script src="//code.jquery.com/jquery-1.11.0.min.js"></script>
-
 <script>
 $(document).ready(function(){
     // 저장된 쿠키값을 가져와서 ID 칸에 넣어준다. 없으면 공백으로 들어감.
@@ -109,7 +108,6 @@ $(document).ready(function(){
     <div>
     <button class="w-100 btn btn-lg btn-dark" type="submit" id=loginbtn onclick="location.href='#'">회원가입</button>
     </div>
-    <a href="/MyPage/changeInfo/changeInfo.jsp">aa</a>
   </form>
 </main>
 

@@ -17,7 +17,18 @@
 
 </head>
 <%
-	String user_no = "2";
+String user_no = (String) session.getAttribute("user_no");
+String user_email = (String) session.getAttribute("user_email");
+
+
+if(user_email != null || user_no != null){
+	session.setAttribute("user_no", user_no); 
+	session.setAttribute("user_email", user_email); 
+} else {
+	out.print("<script>alert('로그인 해주세요');</script>");
+	out.print("<script>document.location.href='/user/login.jsp'</script>");
+	return;
+}
 %>
 <body>
 	<div class="wrap">
